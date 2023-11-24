@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import './reset.css';
+import { ResponsiveBar } from '@nivo/bar'
 
 function App() {
 
@@ -39,7 +40,7 @@ function App() {
 
   const handleScroll = () => {
     if (isScrolling) return;
-    
+
     const currentScrollY = window.scrollY;
     const fullHeight = window.innerHeight;
     const direction = currentScrollY > lastScrollY ? 'down' : 'up';
@@ -108,15 +109,338 @@ function App() {
           <p>쉬지 않고 막히는 부분이 있다면 끊임없는 자기계발을 하며 목표 달성을 위해 노력합니다</p>
         </div>
       </div>
-      <div className="second_block">
-        <div className="second_block_photo">
-          <img src="/profile_pic.jpg" />
-        </div>
-        <div className="second_block_intro">
-          <h1>Full Stack Developer</h1>
-          <p>성격이 차분하고 꼼꼼합니다.</p>
-          <p>맡은 일이나 기획한 프로젝트를 제가 정한 기준에 도달하기 전까지 책임감을 가지고</p>
-          <p>쉬지 않고 막히는 부분이 있다면 끊임없는 자기계발을 하며 목표 달성을 위해 노력합니다</p>
+      <div className="third_block">
+        <h1>skills</h1>
+        <div>
+          <ResponsiveBar
+            data={[
+              {
+                "skill": "html/css",
+                "활용도": 80,
+              },
+              {
+                "skill": "sass",
+                "활용도": 80,
+              },
+              {
+                "skill": "redux",
+                "활용도": 60,
+              },
+              {
+                "skill": "jquery",
+                "활용도": 70,
+              },
+              {
+                "skill": "react",
+                "활용도": 90,
+              },
+              {
+                "skill": "node.js",
+                "활용도": 100,
+              },
+              {
+                "skill": "Springboot",
+                "활용도": 80,
+              },
+              {
+                "skill": "flask",
+                "활용도": 40,
+              },
+              {
+                "skill": "Java",
+                "활용도": 90,
+              },
+              {
+                "skill": "JavaScript",
+                "활용도": 80,
+              },
+              {
+                "skill": "Python",
+                "활용도": 60,
+              },
+
+            ]}
+            keys={[
+              '활용도',
+            ]}
+            theme={{
+              axis: {
+                ticks: {
+                  text: {
+                    fontSize: 16,
+                    fill: 'white' // 흰색으로 축 레이블 색상 변경
+                  }
+                }
+              }
+            }}
+            indexBy="skill"
+            margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
+            padding={0.25}
+            layout="horizontal"
+            valueScale={{ type: 'linear' }}
+            indexScale={{ type: 'band', round: true }}
+            colors={['MidnightBlue', 'brown', 'orange']}
+            // colors={{ scheme: 'nivo' }}
+            defs={[
+              {
+                id: 'dots',
+                type: 'patternDots',
+                background: 'inherit',
+                color: '#38bcb2',
+                size: 4,
+                padding: 1,
+                stagger: true
+              },
+              {
+                id: 'lines',
+                type: 'patternLines',
+                background: 'inherit',
+                color: '#eed312',
+                rotation: -45,
+                lineWidth: 6,
+                spacing: 10
+              }
+            ]}
+            fill={[
+              {
+                match: {
+                  id: 'fries'
+                },
+                id: 'dots'
+              },
+              {
+                match: {
+                  id: 'sandwich'
+                },
+                id: 'lines'
+              }
+            ]}
+            borderColor={{
+              from: 'color',
+              modifiers: [
+                [
+                  'darker',
+                  1.6
+                ]
+              ]
+            }}
+            axisTop={null}
+            axisRight={null}
+            axisBottom={null}
+            axisLeft={{
+              tickRotation: -25, // 레이블 텍스트를 -45도 회전
+              // 다른 축 설정...
+            }}
+            // axisBottom={{
+            //     tickSize: 5,
+            //     tickPadding: 5,
+            //     tickRotation: 0,
+            //     legend: '활용도',
+            //     legendPosition: 'middle',
+            //     legendOffset: 32,
+            //     truncateTickAt: 0
+            // }}
+            // axisLeft={{
+            //     tickSize: 5,
+            //     tickPadding: 5,
+            //     tickRotation: 0,
+            //     legend: 'food',
+            //     legendPosition: 'middle',
+            //     legendOffset: -40,
+            //     truncateTickAt: 0
+            // }}
+            labelSkipWidth={12}
+            labelSkipHeight={12}
+            labelTextColor="white"
+
+
+            // legends={[
+            //   {
+            //     dataFrom: 'keys',
+            //     anchor: 'bottom-right',
+            //     direction: 'column',
+            //     justify: false,
+            //     translateX: 120,
+            //     translateY: 0,
+            //     itemsSpacing: 2,
+            //     itemWidth: 100,
+            //     itemHeight: 20,
+            //     itemDirection: 'left-to-right',
+            //     itemOpacity: 0.85,
+            //     symbolSize: 20,
+            //     effects: [
+            //       {
+            //         on: 'hover',
+            //         style: {
+            //           itemOpacity: 1
+            //         }
+            //       }
+            //     ]
+            //   }
+            // ]}
+            role="application"
+            ariaLabel="Nivo bar chart demo"
+            barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
+          />
+
+          <ResponsiveBar
+            data={[
+              {
+                "skill": "OracleDB",
+                "활용도": 90,
+              },
+              {
+                "skill": "MySQL",
+                "활용도": 90,
+              },
+              {
+                "skill": "MongoDB",
+                "활용도": 80,
+              },
+              {
+                "skill": "git/ Github",
+                "활용도": 80,
+              },
+              {
+                "skill": "aws",
+                "활용도": 60,
+              },
+              {
+                "skill": "netlify",
+                "활용도": 50,
+              },
+              {
+                "skill": "docker",
+                "활용도": 50,
+              },
+              {
+                "skill": "firebase",
+                "활용도": 50,
+              }
+
+            ]}
+            keys={[
+              '활용도',
+            ]}
+            
+            theme={{
+              axis: {
+                ticks: {
+                  text: {
+                    fontSize: 16,
+                    fill: 'white' // 흰색으로 축 레이블 색상 변경
+                  }
+                }
+              }
+            }}
+            indexBy="skill"
+            margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
+            padding={0.25}
+            layout="horizontal"
+            valueScale={{ type: 'linear' }}
+            indexScale={{ type: 'band', round: true }}
+            colors={['MidnightBlue', 'brown', 'orange']}
+            // colors={{ scheme: 'nivo' }}
+            defs={[
+              {
+                id: 'dots',
+                type: 'patternDots',
+                background: 'inherit',
+                color: '#38bcb2',
+                size: 4,
+                padding: 1,
+                stagger: true
+              },
+              {
+                id: 'lines',
+                type: 'patternLines',
+                background: 'inherit',
+                color: '#eed312',
+                rotation: -45,
+                lineWidth: 6,
+                spacing: 10
+              }
+            ]}
+            fill={[
+              {
+                match: {
+                  id: 'fries'
+                },
+                id: 'dots'
+              },
+              {
+                match: {
+                  id: 'sandwich'
+                },
+                id: 'lines'
+              }
+            ]}
+            borderColor={{
+              from: 'color',
+              modifiers: [
+                [
+                  'darker',
+                  1.6
+                ]
+              ]
+            }}
+            axisTop={null}
+            axisRight={null}
+            axisBottom={null}
+            axisLeft={{
+              tickRotation: -25, // 레이블 텍스트를 -45도 회전
+              // 다른 축 설정...
+            }}
+            // axisBottom={{
+            //     tickSize: 5,
+            //     tickPadding: 5,
+            //     tickRotation: 0,
+            //     legend: '활용도',
+            //     legendPosition: 'middle',
+            //     legendOffset: 32,
+            //     truncateTickAt: 0
+            // }}
+            // axisLeft={{
+            //     tickSize: 5,
+            //     tickPadding: 5,
+            //     tickRotation: 0,
+            //     legend: 'food',
+            //     legendPosition: 'middle',
+            //     legendOffset: -40,
+            //     truncateTickAt: 0
+            // }}
+            labelSkipWidth={12}
+            labelSkipHeight={12}
+            labelTextColor="white"
+
+            // legends={[
+            //   {
+            //     dataFrom: 'keys',
+            //     anchor: 'bottom-right',
+            //     direction: 'column',
+            //     justify: false,
+            //     translateX: 120,
+            //     translateY: 0,
+            //     itemsSpacing: 2,
+            //     itemWidth: 100,
+            //     itemHeight: 20,
+            //     itemDirection: 'left-to-right',
+            //     itemOpacity: 0.85,
+            //     symbolSize: 20,
+            //     effects: [
+            //       {
+            //         on: 'hover',
+            //         style: {
+            //           itemOpacity: 1
+            //         }
+            //       }
+            //     ]
+            //   }
+            // ]}
+            role="application"
+            ariaLabel="Nivo bar chart demo"
+            barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
+          />
         </div>
       </div>
     </div>
