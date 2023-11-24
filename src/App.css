@@ -1,38 +1,115 @@
 .App {
-  text-align: center;
+  background-color: rgb(0, 0, 0);
+  height: 100%;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App header {
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99999;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 32px;
+  height: 4rem;
+  color: white;
+  justify-content: space-between;
+  padding: 0.6rem;
+}
+
+
+.nav_box {
+  font-size: 32px;
+  height: 4rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav_box_right {
+  display: flex;
+  /* width: 13rem; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav_box_right li {
+  height: 60%;
+  /* padding: 1rem; */
+}
+
+.nav_box_right svg {
+  width: 100%;
+  height: 100%;
+  fill: white;
+  margin-right: 1rem;
+}
+
+.main_top_box {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+}
+
+
+.main_top_title {
+  position: absolute;
+  top: 50%;
+  /* 중앙 정렬을 위한 설정 */
+  left: 50%;
+  /* 중앙 정렬을 위한 설정 */
+  transform: translate(-50%, -50%);
+  /* 정확한 중앙 정렬을 위한 설정 */
+  z-index: 10;
+  /* 비디오 위에 텍스트가 오도록 z-index 설정 */
+  color: white;
+  /* 텍스트 색상, 필요에 따라 조정 */
+  /* 추가적인 스타일링 */
+}
+
+video {
+  width: 100%;
+  /* 비디오가 main_top_box를 꽉 채우도록 설정 */
+  height: 100%;
+  object-fit: cover;
+  /* 비디오 비율을 유지하면서 영역을 채움 */
+}
+
+
+
+.main_top_title h1 {
+  font-size: 4rem;
+}
+
+.main_top_subtitle p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+
+
+.second_block_photo {
+  margin-left: 3rem;
+  width: 25rem;
+  margin-right: 3rem;
+}
+
+.second_block_photo img {
+  width: 100%;
+}
+
+.second_block_intro h1 {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+}
+
+.second_block_intro p {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.second_block {
+  /* padding: 20rem; */
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  display: flex;
+  height: 100vh;
 }
