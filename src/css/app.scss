@@ -1,0 +1,164 @@
+.App {
+    background-color: rgb(0, 0, 0);
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    scroll-behavior: smooth;
+
+    header {
+        width: 100%;
+        top: 0;
+        position: fixed;
+        z-index: 99999;
+        display: flex;
+        font-size: 32px;
+        height: 4rem;
+        color: white;
+        justify-content: space-between;
+        padding: 0.6rem;
+
+        .nav_box {
+            font-size: 32px;
+            height: 4rem;
+            color: white;
+        }
+
+        .nav_box_right {
+            display: flex;
+            /* width: 13rem; */
+
+            li {
+                height: 60%;
+                /* padding: 1rem; */
+            }
+
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: white;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+
+    .main_top_box {
+        position: relative;
+        height: 100vh;
+        scroll-snap-align: start;
+        text-align: center;
+
+        video {
+            width: 100%;
+            /* 비디오가 main_top_box를 꽉 채우도록 설정 */
+            height: 100%;
+            object-fit: cover;
+            /* 비디오 비율을 유지하면서 영역을 채움 */
+        }
+
+        .main_top_title {
+            position: absolute;
+            top: 50%;
+            /* 중앙 정렬을 위한 설정 */
+            left: 50%;
+            /* 중앙 정렬을 위한 설정 */
+            transform: translate(-50%, -50%);
+            /* 정확한 중앙 정렬을 위한 설정 */
+            z-index: 10;
+            /* 비디오 위에 텍스트가 오도록 z-index 설정 */
+            color: white;
+            /* 텍스트 색상, 필요에 따라 조정 */
+            /* 추가적인 스타일링 */
+
+            h1 {
+                font-size: 4rem;
+            }
+        }
+    }
+
+    .second_block {
+        /* padding: 20rem; */
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        display: flex;
+        height: 100vh;
+        scroll-snap-align: start;
+        position: relative;
+
+        .second_block_box {
+            display: flex;
+            position: absolute;
+
+            .second_block_photo {
+                margin-left: 3rem;
+                width: 25rem;
+                margin-right: 3rem;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .second_block_intro {
+
+                h1 {
+                    font-size: 4rem;
+                    margin-bottom: 3rem;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+
+    .third_block {
+        /* padding: 20rem; */
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        top: 10vh;
+        /* display: flex; */
+        height: 100vh;
+        overflow-x: hidden;
+        scroll-snap-align: start;
+        width: 100%;
+
+        h1 {
+            padding-top: 4rem;
+            margin-left: 7rem;
+            font-size: 4rem;
+        }
+    }
+
+    .third_block>div {
+        display: flex;
+        height: 70%;
+        justify-content: space-between;
+        max-width: 100%;
+    }
+
+    .third_block>div>div {
+        padding: 1rem;
+        width: 48% !important;
+
+    }
+
+    .port_wrapper {
+        height: 100vh;
+        color: white;
+        scroll-snap-align: start;
+        display: flex; 
+
+
+    }
+
+
+
+}
