@@ -5,70 +5,6 @@ import { ResponsiveBar } from '@nivo/bar'
 
 function App() {
 
-  const [lastScrollY, setLastScrollY] = useState(window.scrollY);
-  const [isScrolling, setIsScrolling] = useState(false);
-
-  const smoothScrollTo = (endY, duration) => {
-    setIsScrolling(true); // 스크롤 시작 전에 상태 업데이트
-    const startY = window.scrollY;
-    const change = endY - startY;
-    const startTime = performance.now();
-
-    const animateScroll = currentTime => {
-      const elapsedTime = currentTime - startTime;
-      const nextY = easeInOut(elapsedTime, startY, change, duration);
-
-      window.scrollTo(0, nextY);
-
-      if (elapsedTime < duration) {
-        requestAnimationFrame(animateScroll);
-      } else {
-        window.scrollTo(0, endY);
-        setIsScrolling(false); // 스크롤 완료 후 상태 업데이트
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
-  };
-
-  const easeInOut = (time, start, change, duration) => {
-    time /= duration / 2;
-    if (time < 1) return change / 2 * time * time + start;
-    time--;
-    return -change / 2 * (time * (time - 2) - 1) + start;
-  };
-
-  const handleScroll = () => {
-    if (isScrolling) return;
-
-    const currentScrollY = window.scrollY;
-    const fullHeight = window.innerHeight;
-    const direction = currentScrollY > lastScrollY ? 'down' : 'up';
-    setLastScrollY(currentScrollY);
-
-
-    let newScrollTop;
-
-    if (direction === 'down') {
-      newScrollTop = Math.ceil(currentScrollY / fullHeight) * fullHeight;
-    } else {
-      newScrollTop = Math.floor(currentScrollY / fullHeight) * fullHeight;
-    }
-
-    if (newScrollTop !== currentScrollY) {
-      smoothScrollTo(newScrollTop, 500);
-    }
-  };
-
-
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY, isScrolling]);
 
   return (
     <div className="App">
@@ -322,7 +258,7 @@ function App() {
             keys={[
               '활용도',
             ]}
-            
+
             theme={{
               axis: {
                 ticks: {
