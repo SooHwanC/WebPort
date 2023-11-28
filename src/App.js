@@ -3,6 +3,12 @@ import './css/app.scss';
 import './reset.css';
 import { ResponsiveBar } from '@nivo/bar'
 import { useSpring, a } from '@react-spring/web'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 
 function App() {
 
@@ -36,219 +42,355 @@ function App() {
 
         </ul>
       </header>
-      <div className="main_top_box">
-        <video src="/main_video.mp4" autoPlay playsinline muted loop></video>
-        <div className="main_top_title">
-          <h1>최수환</h1>
-          <h1>Full Stack Developer</h1>
-        </div>
-      </div>
 
-      {/* 플립 */}
-      <div className="second_block" onClick={() => set(state => !state)}>
-        <a.div className="second_block_box"
-          style={{ opacity: opacity.to(o => 1 - o), transform }}>
-
-          <div className="second_block_photo">
-            <img src="/profile_pic.jpg" />
+      <Swiper
+        speed={1000}
+        direction={'vertical'}
+        slidesPerView={1}
+        spaceBetween={30}
+        mousewheel={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Mousewheel, Pagination]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <div className="main_top_box">
+            <video src="/main_video.mp4" autoPlay playsinline muted loop></video>
+            <div className="main_top_title">
+              <h1>최수환</h1>
+              <h1>Full Stack Developer</h1>
+            </div>
           </div>
-          <div className="second_block_intro">
-            <h1>Full Stack Developer</h1>
-            <p>성격이 차분하고 꼼꼼합니다.</p>
-            <p>맡은 일이나 기획한 프로젝트를 제가 정한 기준에 도달하기 전까지 책임감을 가지고</p>
-            <p>쉬지 않고 막히는 부분이 있다면 끊임없는 자기계발을 하며 목표 달성을 위해 노력합니다</p>
-          </div>
-        </a.div>
-        <a.div className="third_block"
-          style={{
-            opacity,
-            transform,
-            rotateX: '180deg',
-          }}>
 
-          <h1>skills</h1>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="second_block" onClick={() => set(state => !state)}>
+            <a.div className="second_block_box"
+              style={{ opacity: opacity.to(o => 1 - o), transform }}>
+              <div>
+                License
+              </div>
+              <div className='second_block_main'>
+
+                <div className="second_block_photo">
+                  <img src="/profile_pic.jpg" />
+                </div>
+                <div className="second_block_intro">
+                  <div>
+                    Full Stack Developer
+                  </div>
+                  <div>
+                    name : 최수환
+                  </div>
+                  <div>
+                    Date of Birth : 08/22/1994
+                  </div>
+                  <div>
+                    Keyworlds : 차분함 꼼꼼함 완벽함
+                  </div>
+
+                  <div className='flip_btn'>
+                    Click!
+                  </div>
+                </div>
+              </div>
+            </a.div>
+            <a.div className="third_block"
+              style={{
+                opacity,
+                transform,
+                rotateX: '180deg',
+              }}>
+
+              <h1>skills</h1>
+              <div>
+                <ResponsiveBar
+                  data={[
+                    {
+                      "skill": "Springboot",
+                      "활용도": 80,
+                    },
+                    {
+                      "skill": "Node.js",
+                      "활용도": 100,
+                    },
+                    {
+                      "skill": "react",
+                      "활용도": 90,
+                    },
+                    {
+                      "skill": "Python",
+                      "활용도": 60,
+                    },
+                    {
+                      "skill": "JavaScript",
+                      "활용도": 80,
+                    },
+                    {
+                      "skill": "Java",
+                      "활용도": 90,
+                    },
+                    {
+                      "skill": "jquery",
+                      "활용도": 70,
+                    },
+                    {
+                      "skill": "redux",
+                      "활용도": 60,
+                    },
+                    {
+                      "skill": "sass",
+                      "활용도": 80,
+                    },
+                    {
+                      "skill": "html/css",
+                      "활용도": 80,
+                    }
+                  ]}
+                  keys={[
+                    '활용도',
+                  ]}
+                  theme={{
+                    grid: {
+                      line: {
+                        stroke: "transparent", // 그리드 선을 투명하게 설정
+                        strokeWidth: 0, // 그리드 선의 두께를 0으로 설정
+                      }
+                    },
+                    axis: {
+                      ticks: {
+                        text: {
+                          fontSize: 16,
+                          fill: 'white' // 흰색으로 축 레이블 색상 변경
+                        }
+                      }
+                    }
+                  }}
+                  indexBy="skill"
+                  margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
+                  padding={0.25}
+                  layout="horizontal"
+                  valueScale={{ type: 'linear' }}
+                  indexScale={{ type: 'band', round: true }}
+                  colors={['MidnightBlue', 'brown', 'orange']}
+                  axisTop={null}
+                  axisRight={null}
+                  axisBottom={null}
+                  axisLeft={{
+                    tickRotation: -25, // 레이블 텍스트를 -45도 회전
+                  }}
+                  label={d => `${d.value}%`}
+                  labelTextColor="white"
+                  role="application"
+                  ariaLabel="Nivo bar chart demo"
+                  barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
+                />
+                <ResponsiveBar
+                  data={[
+                    {
+                      "skill": "OracleDB",
+                      "활용도": 90,
+                    },
+                    {
+                      "skill": "MySQL",
+                      "활용도": 90,
+                    },
+                    {
+                      "skill": "MongoDB",
+                      "활용도": 80,
+                    },
+                    {
+                      "skill": "git/ Github",
+                      "활용도": 80,
+                    },
+                    {
+                      "skill": "aws",
+                      "활용도": 60,
+                    },
+                    {
+                      "skill": "docker",
+                      "활용도": 50,
+                    },
+                    {
+                      "skill": "firebase",
+                      "활용도": 50,
+                    }
+                  ]}
+                  keys={[
+                    '활용도',
+                  ]}
+
+                  theme={{
+                    grid: {
+                      line: {
+                        stroke: "transparent", // 그리드 선을 투명하게 설정
+                        strokeWidth: 0, // 그리드 선의 두께를 0으로 설정
+                      }
+                    },
+                    axis: {
+                      ticks: {
+                        text: {
+                          fontSize: 16,
+                          fill: 'white' // 흰색으로 축 레이블 색상 변경
+                        }
+                      }
+                    }
+                  }}
+                  indexBy="skill"
+                  margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
+                  padding={0.25}
+                  layout="horizontal"
+                  valueScale={{ type: 'linear' }}
+                  indexScale={{ type: 'band', round: true }}
+                  colors={['MidnightBlue', 'brown', 'orange']}
+                  borderColor={{
+                    from: 'color',
+                    modifiers: [
+                      [
+                        'darker',
+                        1.6
+                      ]
+                    ]
+                  }}
+                  axisTop={null}
+                  axisRight={null}
+                  axisBottom={null}
+                  axisLeft={{
+                    tickRotation: -25, // 레이블 텍스트를 -45도 회전
+                  }}
+                  label={d => `${d.value}%`}
+                  labelTextColor="white"
+                  role="application"
+                  ariaLabel="Nivo bar chart demo"
+                  barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
+                />
+              </div>
+
+            </a.div>
+          </div>
+        </SwiperSlide >
+        <SwiperSlide className='work_wrapper'>
           <div>
-            <ResponsiveBar
-              data={[
-                {
-                  "skill": "Springboot",
-                  "활용도": 80,
-                },
-                {
-                  "skill": "Node.js",
-                  "활용도": 100,
-                },
-                {
-                  "skill": "react",
-                  "활용도": 90,
-                },
-                {
-                  "skill": "Python",
-                  "활용도": 60,
-                },
-                {
-                  "skill": "JavaScript",
-                  "활용도": 80,
-                },
-                {
-                  "skill": "Java",
-                  "활용도": 90,
-                },
-                {
-                  "skill": "jquery",
-                  "활용도": 70,
-                },
-                {
-                  "skill": "redux",
-                  "활용도": 60,
-                },
-                {
-                  "skill": "sass",
-                  "활용도": 80,
-                },
-                {
-                  "skill": "html/css",
-                  "활용도": 80,
-                }
-              ]}
-              keys={[
-                '활용도',
-              ]}
-              theme={{
-                grid: {
-                  line: {
-                    stroke: "transparent", // 그리드 선을 투명하게 설정
-                    strokeWidth: 0, // 그리드 선의 두께를 0으로 설정
-                  }
-                },
-                axis: {
-                  ticks: {
-                    text: {
-                      fontSize: 16,
-                      fill: 'white' // 흰색으로 축 레이블 색상 변경
-                    }
-                  }
-                }
-              }}
-              indexBy="skill"
-              margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
-              padding={0.25}
-              layout="horizontal"
-              valueScale={{ type: 'linear' }}
-              indexScale={{ type: 'band', round: true }}
-              colors={['MidnightBlue', 'brown', 'orange']}
-              axisTop={null}
-              axisRight={null}
-              axisBottom={null}
-              axisLeft={{
-                tickRotation: -25, // 레이블 텍스트를 -45도 회전
-              }}
-              label={d => `${d.value}%`}
-              labelTextColor="white"
-              role="application"
-              ariaLabel="Nivo bar chart demo"
-              barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
-            />
-
-            <ResponsiveBar
-              data={[
-                {
-                  "skill": "OracleDB",
-                  "활용도": 90,
-                },
-                {
-                  "skill": "MySQL",
-                  "활용도": 90,
-                },
-                {
-                  "skill": "MongoDB",
-                  "활용도": 80,
-                },
-                {
-                  "skill": "git/ Github",
-                  "활용도": 80,
-                },
-                {
-                  "skill": "aws",
-                  "활용도": 60,
-                },
-                {
-                  "skill": "docker",
-                  "활용도": 50,
-                },
-                {
-                  "skill": "firebase",
-                  "활용도": 50,
-                }
-              ]}
-              keys={[
-                '활용도',
-              ]}
-
-              theme={{
-                grid: {
-                  line: {
-                    stroke: "transparent", // 그리드 선을 투명하게 설정
-                    strokeWidth: 0, // 그리드 선의 두께를 0으로 설정
-                  }
-                },
-                axis: {
-                  ticks: {
-                    text: {
-                      fontSize: 16,
-                      fill: 'white' // 흰색으로 축 레이블 색상 변경
-                    }
-                  }
-                }
-              }}
-              indexBy="skill"
-              margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
-              padding={0.25}
-              layout="horizontal"
-              valueScale={{ type: 'linear' }}
-              indexScale={{ type: 'band', round: true }}
-              colors={['MidnightBlue', 'brown', 'orange']}
-              borderColor={{
-                from: 'color',
-                modifiers: [
-                  [
-                    'darker',
-                    1.6
-                  ]
-                ]
-              }}
-              axisTop={null}
-              axisRight={null}
-              axisBottom={null}
-              axisLeft={{
-                tickRotation: -25, // 레이블 텍스트를 -45도 회전
-              }}
-              label={d => `${d.value}%`}
-              labelTextColor="white"
-              role="application"
-              ariaLabel="Nivo bar chart demo"
-              barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
-            />
+            <h1>Work</h1>
           </div>
+          <Swiper navigation={true} modules={[Navigation]} className="port_wrapper">
+            <SwiperSlide>
+              <div className='port_box'>
+                <div className='port_box_inner'>
+                  <div className='port_box_img'>
+                    <img src='/javaburger.png' />
+                  </div>
+                  <div className='port_box_description'>
+                    <h2>Java Burger</h2>
+                    <span>
+                      햄버거를 만들어 사람들에게 행복을 전달하는 본격! 햄버거 타이쿤
+                    </span>
+                    <ul>
+                      <li>
+                        Java
+                      </li>
+                      <li>
+                        Java
+                      </li>
+                    </ul>
+                    <div className='detail_btn'>
+                      Detail
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className='port_box'>
+                <div className='port_box_inner'>
+                  <div className='port_box_img'>
+                    <img src='/travelmaker.png' />
+                  </div>
+                  <div className='port_box_description'>
+                    <h2>Travel Maker</h2>
+                    <span>
+                      맞춤형 여행가이드 오픈마켓 플랫폼
+                    </span>
+                    <ul>
+                      <li>
+                        Java
+                      </li>
+                      <li>
+                        Java
+                      </li>
+                    </ul>
+                    <div className='detail_btn'>
+                      Detail
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className='port_box'>
+                <div className='port_box_inner'>
+                  <div className='port_box_img'>
+                    <img src='/itty.png' />
+                  </div>
+                  <div className='port_box_description'>
+                    <h2>ITTY</h2>
+                    <span>
+                      개발자를 위한 IT커뮤니티 ITTY
+                    </span>
+                    <ul>
+                      <li>
+                        Java
+                      </li>
+                      <li>
+                        Java
+                      </li>
+                    </ul>
+                    <div className='detail_btn'>
+                      Detail
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className='port_box'>
+                <div className='port_box_inner'>
+                  <div className='port_box_img'>
+                    <img src='/itty.png' />
+                  </div>
+                  <div className='port_box_description'>
+                    <h2>Code Bridge</h2>
+                    <span>
+                      웹 개발환경과 AI가 포함된 코딩 AI LMS
+                    </span>
+                    <ul>
+                      <li>
+                        Java
+                      </li>
+                      <li>
+                        Java
+                      </li>
+                    </ul>
+                    <div className='detail_btn'>
+                      Detail
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
 
-        </a.div>
-      </div>
-
-      {/* 플립 */}
-
-
-      <div className="port_wrapper">
-        <div className='port_box'>
-          1번 포트폴리오
-        </div>
-        <div className='port_box'>
-          2번 포트폴리오
-        </div>
-        <div className='port_box'>
-          3번 포트폴리오
-        </div>
-      </div>
-    </div>
+        </SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide>Slide 6</SwiperSlide>
+        <SwiperSlide>Slide 7</SwiperSlide>
+        <SwiperSlide>Slide 8</SwiperSlide>
+        <SwiperSlide>Slide 9</SwiperSlide>
+      </Swiper >
+    </div >
   );
 }
 
