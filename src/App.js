@@ -8,6 +8,7 @@ import { Mousewheel, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { Link } from "react-router-dom";
 
 
 function App() {
@@ -283,20 +284,24 @@ function App() {
                     <img src='/javaburger.png' />
                   </div>
                   <div className='port_box_description'>
-                    <h2>Java Burger</h2>
-                    <span>
-                      햄버거를 만들어 사람들에게 행복을 전달하는 본격! 햄버거 타이쿤
-                    </span>
-                    <ul>
-                      <li>
-                        Java
-                      </li>
-                      <li>
-                        Java
-                      </li>
-                    </ul>
+                    <div>
+                      <h2>Java Burger</h2>
+                      <span>
+                        햄버거를 만들어 사람들에게 행복을 전달하는 본격! 햄버거 타이쿤
+                      </span>
+                      <ul>
+                        <li>
+                          Java
+                        </li>
+                        <li>
+                          Java
+                        </li>
+                      </ul>
+                    </div>
                     <div className='detail_btn'>
-                      Detail
+                      <Link>
+                        Detail
+                      </Link>
                     </div>
                   </div>
                 </div>
