@@ -20,10 +20,35 @@ function App() {
     config: { mass: 5, tension: 500, friction: 80 },
   })
 
+  const [activeSlide, setActiveSlide] = useState(0);
 
+  const handleSlideChange = (swiper) => {
+    setActiveSlide(swiper.activeIndex);
+  };
+  console.log('activeSlide', activeSlide);
+
+  const [transitionDuration, setTransitionDuration] = useState('0.5s');
+
+  useEffect(() => {
+    if (activeSlide >= 2 && activeSlide <= 4) {
+      // 나타날 때 0.8초
+      setTransitionDuration('0.8s');
+    } else {
+      // 사라질 때 0.5초
+      setTransitionDuration('0.3s');
+    }
+  }, [activeSlide]);
+
+  const leftBoxStyle = {
+    opacity: activeSlide >= 2 && activeSlide <= 4 ? 1 : 0,
+    transition: `opacity ${transitionDuration} ease-in-out`,
+  };
 
   return (
     <div className="App">
+      <div className="left_box_fixed" style={leftBoxStyle}>
+        이런걸 할줄 압니다
+      </div>
       <header>
         <div className="nav_box_left">
           최수환
@@ -53,6 +78,7 @@ function App() {
         pagination={{
           clickable: true,
         }}
+        onSlideChange={handleSlideChange}
         modules={[Mousewheel, Pagination]}
         className="mySwiper"
       >
@@ -68,210 +94,73 @@ function App() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="second_block" onClick={() => set(state => !state)}>
-            <a.div className="second_block_box"
-              style={{ opacity: opacity.to(o => 1 - o), transform }}>
-              <div>
-                License
+            <div>
+              License
+            </div>
+            <div className='second_block_main'>
+
+              <div className="second_block_photo">
+                <img src="/profile_pic.jpg" />
               </div>
-              <div className='second_block_main'>
-
-                <div className="second_block_photo">
-                  <img src="/profile_pic.jpg" />
+              <div className="second_block_intro">
+                <div>
+                  Full Stack Developer
                 </div>
-                <div className="second_block_intro">
-                  <div>
-                    Full Stack Developer
-                  </div>
-                  <div>
-                    name : 최수환
-                  </div>
-                  <div>
-                    Date of Birth : 08/22/1994
-                  </div>
-                  <div>
-                    Keyworlds : 차분함 꼼꼼함 완벽함
-                  </div>
+                <div>
+                  name : 최수환
+                </div>
+                <div>
+                  Date of Birth : 08/22/1994
+                </div>
+                <div>
+                  Keyworlds : 차분함 꼼꼼함 완벽함
+                </div>
 
-                  <div className='flip_btn'>
-                    Click!
-                  </div>
+                <div className='flip_btn'>
+                  Click!
                 </div>
               </div>
-            </a.div>
-            <a.div className="third_block"
-              style={{
-                opacity,
-                transform,
-                rotateX: '180deg',
-              }}>
+            </div>
 
-              <h1>skills</h1>
-              <div>
-                <ResponsiveBar
-                  data={[
-                    {
-                      "skill": "Springboot",
-                      "활용도": 80,
-                    },
-                    {
-                      "skill": "Node.js",
-                      "활용도": 100,
-                    },
-                    {
-                      "skill": "react",
-                      "활용도": 90,
-                    },
-                    {
-                      "skill": "Python",
-                      "활용도": 60,
-                    },
-                    {
-                      "skill": "JavaScript",
-                      "활용도": 80,
-                    },
-                    {
-                      "skill": "Java",
-                      "활용도": 90,
-                    },
-                    {
-                      "skill": "jquery",
-                      "활용도": 70,
-                    },
-                    {
-                      "skill": "redux",
-                      "활용도": 60,
-                    },
-                    {
-                      "skill": "sass",
-                      "활용도": 80,
-                    },
-                    {
-                      "skill": "html/css",
-                      "활용도": 80,
-                    }
-                  ]}
-                  keys={[
-                    '활용도',
-                  ]}
-                  theme={{
-                    grid: {
-                      line: {
-                        stroke: "transparent", // 그리드 선을 투명하게 설정
-                        strokeWidth: 0, // 그리드 선의 두께를 0으로 설정
-                      }
-                    },
-                    axis: {
-                      ticks: {
-                        text: {
-                          fontSize: 16,
-                          fill: 'white' // 흰색으로 축 레이블 색상 변경
-                        }
-                      }
-                    }
-                  }}
-                  indexBy="skill"
-                  margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
-                  padding={0.25}
-                  layout="horizontal"
-                  valueScale={{ type: 'linear' }}
-                  indexScale={{ type: 'band', round: true }}
-                  colors={['MidnightBlue', 'brown', 'orange']}
-                  axisTop={null}
-                  axisRight={null}
-                  axisBottom={null}
-                  axisLeft={{
-                    tickRotation: -25, // 레이블 텍스트를 -45도 회전
-                  }}
-                  label={d => `${d.value}%`}
-                  labelTextColor="white"
-                  role="application"
-                  ariaLabel="Nivo bar chart demo"
-                  barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
-                />
-                <ResponsiveBar
-                  data={[
-                    {
-                      "skill": "OracleDB",
-                      "활용도": 90,
-                    },
-                    {
-                      "skill": "MySQL",
-                      "활용도": 90,
-                    },
-                    {
-                      "skill": "MongoDB",
-                      "활용도": 80,
-                    },
-                    {
-                      "skill": "git/ Github",
-                      "활용도": 80,
-                    },
-                    {
-                      "skill": "aws",
-                      "활용도": 60,
-                    },
-                    {
-                      "skill": "docker",
-                      "활용도": 50,
-                    },
-                    {
-                      "skill": "firebase",
-                      "활용도": 50,
-                    }
-                  ]}
-                  keys={[
-                    '활용도',
-                  ]}
-
-                  theme={{
-                    grid: {
-                      line: {
-                        stroke: "transparent", // 그리드 선을 투명하게 설정
-                        strokeWidth: 0, // 그리드 선의 두께를 0으로 설정
-                      }
-                    },
-                    axis: {
-                      ticks: {
-                        text: {
-                          fontSize: 16,
-                          fill: 'white' // 흰색으로 축 레이블 색상 변경
-                        }
-                      }
-                    }
-                  }}
-                  indexBy="skill"
-                  margin={{ top: 50, right: 80, bottom: 50, left: 100 }}
-                  padding={0.25}
-                  layout="horizontal"
-                  valueScale={{ type: 'linear' }}
-                  indexScale={{ type: 'band', round: true }}
-                  colors={['MidnightBlue', 'brown', 'orange']}
-                  borderColor={{
-                    from: 'color',
-                    modifiers: [
-                      [
-                        'darker',
-                        1.6
-                      ]
-                    ]
-                  }}
-                  axisTop={null}
-                  axisRight={null}
-                  axisBottom={null}
-                  axisLeft={{
-                    tickRotation: -25, // 레이블 텍스트를 -45도 회전
-                  }}
-                  label={d => `${d.value}%`}
-                  labelTextColor="white"
-                  role="application"
-                  ariaLabel="Nivo bar chart demo"
-                  barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
-                />
-              </div>
-
-            </a.div>
           </div>
         </SwiperSlide >
+        <SwiperSlide>
+          <div className='skill_block'>
+            <div className='left_box'>
+            </div>
+            <div className='right_box'>
+              <div className='right_box_front'>
+                Front
+              </div>
+              <div className='right_box_logo'>
+                <img src='/html.png' alt='logo_html' />
+              </div>
+            </div>
+          </div>
+        </SwiperSlide >
+        <SwiperSlide>
+          <div className='skill_block'>
+            <div className='left_box'>
+
+            </div>
+            <div className='right_box'>
+              오른쪽2
+            </div>
+          </div>
+        </SwiperSlide >
+        <SwiperSlide>
+          <div className='skill_block'>
+            <div className='left_box'>
+
+            </div>
+            <div className='right_box'>
+              오른쪽3
+            </div>
+          </div>
+        </SwiperSlide >
+
+
+
         <SwiperSlide className='work_wrapper'>
           <div>
             <h1>Work</h1>
@@ -386,14 +275,7 @@ function App() {
               </div>
             </SwiperSlide>
           </Swiper>
-
         </SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
       </Swiper >
     </div >
   );
