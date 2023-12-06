@@ -9,24 +9,23 @@
         position: fixed;
         z-index: 99999;
         display: flex;
-        font-size: 32px;
         height: 4rem;
         color: white;
         justify-content: space-between;
-        padding: 0.6rem;
+        align-items: center;
+        padding: 1.5rem 3rem 1.5rem 3rem;
 
-        .nav_box {
-            font-size: 32px;
-            height: 4rem;
+        .nav_box_left {
+            font-family: 'GangwonEduPowerExtraBoldA';
+            font-size: 2rem;
             color: white;
         }
 
         .nav_box_right {
             display: flex;
+            height: 2.5rem;
 
-            li {
-                height: 60%;
-            }
+            li {}
 
             svg {
                 width: 100%;
@@ -140,11 +139,6 @@
                         line-height: 2rem;
                     }
 
-                    .flip_btn {
-                        font-size: 1.5rem;
-                        display: flex;
-                        justify-content: flex-end;
-                    }
                 }
 
             }
@@ -163,7 +157,7 @@
             background-color: rgb(26, 25, 25);
             color: white;
             font-size: 10rem;
-            width: 50%;
+            // width: 50%;
             height: 200vh;
             position: fixed;
             overflow: auto;
@@ -171,23 +165,54 @@
 
         .right_box {
             position: relative;
-            left: 50%;
             background-color: white;
-            // overflow-y: auto;
+            left: 50%;
             width: 50%;
-            // height: 100%;
+            padding: 2rem;
 
-            .right_box_front{
+            .right_box_front {
+                font-family: 'SDSamliphopangche_Outline';
                 font-size: 5rem;
-                margin-top: 4rem;
+                margin-top: 5rem;
                 text-align: left;
             }
 
-            .right_box_logo{
-                img{
-                    width: 20%;
+            .logo_wrapper {
+                height: 70%;
+                display: grid;
+                align-content: center;
+
+                .right_box_logo {
+                    @keyframes tilt {
+
+                        0%,
+                        100% {
+                            transform: rotate(-3deg);
+                        }
+
+                        50% {
+                            transform: rotate(3deg);
+                        }
+                    }
+
+                    .tilt-animation {
+                        animation: tilt 2s infinite alternate ease-in-out;
+                    }
+
+
+                    img {
+                        width: 20%;
+                        margin: 1rem;
+                    }
+
+                    .large_svg {
+                        width: 35%;
+                        animation: tilt 2s infinite alternate ease-in-out;
+                    }
                 }
             }
+
+
         }
     }
 
@@ -247,6 +272,7 @@
                 // align-items: center;
                 height: 100%;
                 flex-direction: column;
+                cursor: grab;
 
                 div:first-child {
 
@@ -264,21 +290,21 @@
                     align-items: center;
 
                     .port_box_img {
-                        width: 40%;
+                        width: 50%;
+                        height: 100%;
                         margin-left: 4rem;
                         border-radius: 0.8rem;
                         overflow: hidden;
-                        height: 100%;
 
                         img {
                             width: 100%;
                             height: 100%;
+                            object-fit: cover;
                         }
                     }
 
                     .port_box_description {
-                        width: 60%;
-                        height: 100%;
+                        width: 50%;
                         text-align: left;
                         margin-left: 2rem;
                         display: grid;
@@ -291,6 +317,13 @@
                             border-radius: 2rem;
                             text-align: center;
                             padding: 0.5rem 1rem 0.5rem 1rem;
+                            cursor: pointer;
+                            margin-top: 3rem;
+
+                            a {
+                                text-decoration: none;
+                                color: white;
+                            }
                         }
 
                         >div:first-child {
@@ -375,9 +408,9 @@
     // background: #fff;
 
     /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
 }
 
 // .swiper-slide img {
@@ -388,13 +421,15 @@
 // }
 
 .left_box_fixed {
+    font-family: 'JalnanGothic';
     position: absolute;
-    top: 45%; 
+    top: 45%;
     // left: 20%;
     // transform: translate(-50%, -50%);
-    z-index: 10; 
+    z-index: 1;
     font-size: 8rem;
     color: white;
     width: 50%;
-  }
-  
+    text-align: center;
+    cursor: default;
+}
