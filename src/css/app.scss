@@ -25,7 +25,12 @@
             display: flex;
             height: 2.5rem;
 
-            li {}
+            li {
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
 
             svg {
                 width: 100%;
@@ -80,73 +85,54 @@
         height: 100vh;
         position: relative;
 
-        .second_block_box {
-            position: absolute;
-            background: rgb(0, 0, 0);
-            width: 60rem;
-            height: 35rem;
-            border-radius: 1rem;
-            box-shadow: 4px 4px 0px 0px #27320b;
+        .second_block_photo {
+            width: 30%;
+            height: 55%;
+            margin-left: 5rem;
+            overflow: hidden;
+            border-radius: 0.6rem;
 
-
-            >div:first-child {
-                margin-top: 1.5rem;
-                font-size: 5rem;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
-
-            .second_block_main {
-
-                display: flex;
-                margin-top: 2rem;
-
-                .second_block_photo {
-                    margin-left: 3rem;
-                    width: 20rem;
-                    height: 25rem;
-                    margin-right: 3rem;
-                    border-radius: 0.5rem;
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-
-                .second_block_intro {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    text-align: left;
-
-                    >div:nth-child(1) {
-                        font-size: 3rem;
-                    }
-
-                    >div:nth-child(2),
-                    >div:nth-child(3),
-                    >div:nth-child(4) {
-                        font-size: 1.3rem;
-                    }
-
-                    h1 {
-                        font-size: 4rem;
-                        margin-bottom: 3rem;
-                    }
-
-                    p {
-                        font-size: 1.2rem;
-                        line-height: 2rem;
-                    }
-
-                }
-
-            }
-
-
-
-
         }
+
+        .second_block_intro {
+            width: 45%;
+            margin-left: 4rem;
+            text-align: left;
+
+            h1 {
+                font-size: 2.7rem;
+                font-family: 'SBAggroB';
+                margin-bottom: 3rem;
+            }
+
+            p {
+                font-family: 'NPSfontBold';
+                line-height: 2rem;
+            }
+
+            ul {
+                margin-top: 1.5rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+
+                li {
+                    padding: 0.4rem 1.2rem;
+                    color: rgb(10, 205, 206);
+                    font-size: 1rem;
+                    border: 0.2rem solid rgba(10, 205, 206, 0.25);
+                    border-radius: 10rem;
+                    font-family: 'NPSfontBold';
+                }
+            }
+        }
+
+
     }
 
     .skill_block {
@@ -170,9 +156,9 @@
             width: 50%;
             padding: 2rem;
 
-            .right_box_front {
+            h1 {
                 font-family: 'SDSamliphopangche_Outline';
-                font-size: 5rem;
+                font-size: 4.5rem;
                 margin-top: 5rem;
                 text-align: left;
             }
@@ -181,6 +167,11 @@
                 height: 70%;
                 display: grid;
                 align-content: center;
+
+                h2 {
+                    font-family: 'SDSamliphopangche_Outline';
+                    font-size: 3rem;
+                }
 
                 .right_box_logo {
                     @keyframes tilt {
@@ -201,12 +192,12 @@
 
 
                     img {
-                        width: 20%;
+                        width: 16%;
                         margin: 1rem;
                     }
 
                     .large_svg {
-                        width: 35%;
+                        width: 32%;
                         animation: tilt 2s infinite alternate ease-in-out;
                     }
                 }
@@ -254,11 +245,12 @@
         >div {
 
             h1 {
-                margin-left: 3rem;
+                font-family: 'SBAggroB';
+                margin-left: 6rem;
                 position: absolute;
-                top: 10rem;
+                top: 12rem;
                 color: white;
-                font-size: 5rem;
+                font-size: 4rem;
             }
         }
 
@@ -272,7 +264,6 @@
                 // align-items: center;
                 height: 100%;
                 flex-direction: column;
-                cursor: grab;
 
                 div:first-child {
 
@@ -286,12 +277,17 @@
                 .port_box_inner {
                     display: flex;
                     width: 100%;
-                    height: 35%;
+                    height: 30%;
                     align-items: center;
+                    justify-content: center;
+                    cursor: grab;
+
 
                     .port_box_img {
-                        width: 50%;
+                        width: 45%;
                         height: 100%;
+                        max-width: 590px;
+
                         margin-left: 4rem;
                         border-radius: 0.8rem;
                         overflow: hidden;
@@ -304,25 +300,28 @@
                     }
 
                     .port_box_description {
-                        width: 50%;
+                        width: 40%;
                         text-align: left;
-                        margin-left: 2rem;
+                        margin-left: 4rem;
                         display: grid;
                         align-content: space-between;
 
-                        .detail_btn {
-                            background-color: rgb(112, 101, 84);
-                            font-size: 1.5rem;
-                            width: 7rem;
-                            border-radius: 2rem;
-                            text-align: center;
-                            padding: 0.5rem 1rem 0.5rem 1rem;
-                            cursor: pointer;
-                            margin-top: 3rem;
+                        a {
 
-                            a {
-                                text-decoration: none;
-                                color: white;
+                            text-decoration: none;
+                            color: white;
+
+                            .detail_btn {
+                                background-color: rgb(112, 101, 84);
+                                font-size: 1.5rem;
+                                width: 7rem;
+                                border-radius: 2rem;
+                                text-align: center;
+                                padding: 0.5rem 1rem 0.5rem 1rem;
+                                cursor: pointer;
+                                margin-top: 3rem;
+
+
                             }
                         }
 
@@ -421,7 +420,8 @@
 // }
 
 .left_box_fixed {
-    font-family: 'JalnanGothic';
+    // font-family: 'JalnanGothic';
+    font-family: 'SBAggroB';
     position: absolute;
     top: 45%;
     // left: 20%;
