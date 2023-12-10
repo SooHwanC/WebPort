@@ -19,10 +19,33 @@
             font-family: 'GangwonEduPowerExtraBoldA';
             font-size: 2rem;
             color: white;
+            cursor: pointer;
 
             @media(max-width:1024px) {
                 font-size: 1.5rem;
             }
+        }
+
+        .nav_box_middle {
+            display: flex;
+            align-items: center;
+
+            li {
+                // font-family: 'GangwonEduPowerExtraBoldA';
+                font-size: 1.5rem;
+                // margin-right: 2rem;
+                color: #6d91b1;
+                cursor: pointer;
+                text-align: center;
+                width: 150px;
+            }
+
+            .active-menu-item {
+                font-size: 2rem;
+                text-decoration: underline;
+                color: white;
+            }
+
         }
 
         .nav_box_right {

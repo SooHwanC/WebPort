@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -43,6 +43,40 @@ function Main() {
         setShowModal(!showModal);
     };
 
+    // Swiper 인스턴스를 저장할 상태
+    const [swiperInstance, setSwiperInstance] = useState(null);
+
+    // Swiper 인스턴스가 준비되면 저장
+    const handleSwiper = (swiper) => {
+        setSwiperInstance(swiper);
+    };
+
+    // 메인으로 이동하는 함수
+    const goToMain = () => {
+        if (swiperInstance) {
+            swiperInstance.slideTo(0);
+        }
+    }
+
+    const goToIntro = () => {
+        if (swiperInstance) {
+            swiperInstance.slideTo(1);
+        }
+    }
+
+    const goToSkills = () => {
+        if (swiperInstance) {
+            swiperInstance.slideTo(2);
+        }
+    }
+
+    const goToWorks = () => {
+        if (swiperInstance) {
+            swiperInstance.slideTo(5);
+        }
+    }
+
+
     return (
         <div className="App">
             {activeSlide >= 1 && activeSlide <= 5 &&
@@ -56,9 +90,29 @@ function Main() {
             {showModal && <JavaBurger closeModal={toggleModal} />}
 
             <header>
-                <div className="nav_box_left">
+                <div className="nav_box_left" onClick={goToMain}>
                     SooHwan
                 </div>
+                <ul className='nav_box_middle'>
+                    <li
+                        onClick={goToIntro}
+                        className={activeSlide === 1 ? 'active-menu-item' : ''}
+                    >
+                        Intro
+                    </li>
+                    <li
+                        onClick={goToSkills}
+                        className={activeSlide >= 2 && activeSlide <= 4 ? 'active-menu-item' : ''}
+                    >
+                        Skills
+                    </li>
+                    <li
+                        onClick={goToWorks}
+                        className={activeSlide === 5 ? 'active-menu-item' : ''}
+                    >
+                        Works
+                    </li>
+                </ul>
                 <ul className="nav_box_right">
                     <li>
                         <a href='https://github.com/SooHwanC' target="_blank" rel="noopener noreferrer">
@@ -87,6 +141,7 @@ function Main() {
                 slidesPerView={1}
                 spaceBetween={30}
                 mousewheel={true}
+                onSwiper={handleSwiper}
                 pagination={{
                     clickable: true,
                 }}
