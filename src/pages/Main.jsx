@@ -20,7 +20,7 @@ function Main() {
     const [transitionDuration, setTransitionDuration] = useState('0.5s');
 
     useEffect(() => {
-        if (activeSlide >= 2 && activeSlide <= 4) {
+        if (activeSlide >= 3 && activeSlide <= 5) {
             // 나타날 때 0.8초
             setTransitionDuration('0.8s');
         } else {
@@ -30,7 +30,7 @@ function Main() {
     }, [activeSlide]);
 
     const leftBoxStyle = {
-        opacity: activeSlide >= 2 && activeSlide <= 4 ? 1 : 0,
+        opacity: activeSlide >= 3 && activeSlide <= 5 ? 1 : 0,
         transition: `opacity ${transitionDuration} ease-in-out`,
     };
 
@@ -66,25 +66,25 @@ function Main() {
 
     const goToSkills = () => {
         if (swiperInstance) {
-            swiperInstance.slideTo(2);
+            swiperInstance.slideTo(3);
         }
     }
 
     const goToWorks = () => {
         if (swiperInstance) {
-            swiperInstance.slideTo(5);
+            swiperInstance.slideTo(2);
         }
     }
 
 
     return (
         <div className="App">
-            {activeSlide >= 1 && activeSlide <= 5 &&
+            {activeSlide >= 2 && activeSlide <= 6 &&
                 <div className="left_box_fixed" style={leftBoxStyle}>
                     SKILLS <br />
-                    {activeSlide == 2 && "-Front-"}
-                    {activeSlide == 3 && "-Back-"}
-                    {activeSlide == 4 && "-Etc-"}
+                    {activeSlide == 3 && "-Front-"}
+                    {activeSlide == 4 && "-Back-"}
+                    {activeSlide == 5 && "-Etc-"}
                 </div>
             }
             {showModal && <JavaBurger closeModal={toggleModal} />}
@@ -101,16 +101,16 @@ function Main() {
                         Intro
                     </li>
                     <li
-                        onClick={goToSkills}
-                        className={activeSlide >= 2 && activeSlide <= 4 ? 'active-menu-item' : ''}
-                    >
-                        Skills
-                    </li>
-                    <li
                         onClick={goToWorks}
-                        className={activeSlide === 5 ? 'active-menu-item' : ''}
+                        className={activeSlide === 2 ? 'active-menu-item' : ''}
                     >
                         Works
+                    </li>
+                    <li
+                        onClick={goToSkills}
+                        className={activeSlide >= 3 && activeSlide <= 5 ? 'active-menu-item' : ''}
+                    >
+                        Skills
                     </li>
                 </ul>
                 <ul className="nav_box_right">
@@ -184,138 +184,6 @@ function Main() {
                         </div>
                     </div>
                 </SwiperSlide >
-                <SwiperSlide>
-                    <div className='skill_block'>
-                        <div className='left_box'>
-                        </div>
-                        <div className='right_box'>
-                            {/* <h1>
-                                Front
-                            </h1> */}
-                            <div className='logo_wrapper'>
-                                <h2>
-                                    Language
-                                </h2>
-                                <div className='right_box_logo3'>
-                                    <div className='logo_box'>
-                                        <img src='/html.svg' alt='logo_html' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/css.svg' alt='logo_css' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/javascript.svg' alt='logo_js' class='tilt-animation' />
-                                    </div>
-                                </div>
-                                <h2>
-                                    FrameWork
-                                </h2>
-                                <div className='right_box_logo1'>
-                                    <div className='logo_box'>
-                                        <img src='/react.svg' alt='logo_react' class='tilt-animation' />
-                                    </div>
-                                </div>
-                                <h2>
-                                    Library
-                                </h2>
-                                <div className='right_box_logo2'>
-                                    <div className='logo_box'>
-                                        <img src='/redux.svg' alt='logo_redux' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/sass.svg' alt='logo_sass' class='tilt-animation' />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide >
-                <SwiperSlide>
-                    <div className='skill_block'>
-                        <div className='left_box'>
-                        </div>
-                        <div className='right_box'>
-                            {/* <h1>
-                                Back
-                            </h1> */}
-                            <div className='logo_wrapper'>
-                                <h2>
-                                    Language
-                                </h2>
-                                <div className='right_box_logo3'>
-                                    <div className='logo_box'>
-                                        <img src='/javascript.svg' alt='logo_js' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/java.svg' alt='logo_java' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/python.svg' alt='logo_python' class='tilt-animation' />
-                                    </div>
-                                </div>
-                                <h2>
-                                    FrameWork
-                                </h2>
-                                <div className='right_box_logo2'>
-                                    <div className='logo_box_large'>
-                                        <img src='/springboot.svg' className='large_svg' alt='logo_spb' />
-                                    </div>
-                                    <div className='logo_box_large'>
-                                        <img src='/node1.svg' className='large_svg' alt='logo_node' />
-                                    </div>
-                                </div>
-                                <h2>
-                                    DB
-                                </h2>
-                                <div className='right_box_logo3'>
-                                    <div className='logo_box'>
-                                        <img src='/oracle.svg' alt='logo_oracle' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/mysql.svg' alt='logo_mysql' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/mongodb.svg' alt='logo_mongodb' class='tilt-animation' />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide >
-                <SwiperSlide>
-                    <div className='skill_block'>
-                        <div className='left_box'>
-                        </div>
-                        <div className='right_box'>
-                            {/* <h1>
-                                Etc
-                            </h1> */}
-                            <div className='logo_wrapper'>
-                                <h2>
-                                    Etc
-                                </h2>
-
-                                <div className='right_box_logo3'>
-                                    <div className='logo_box'>
-                                        <img src='/docker.svg' alt='logo_docker' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/firebase.svg' alt='logo_firebase' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/aws.svg' alt='logo_aws' class='tilt-animation' />
-                                    </div>
-                                    <div className='logo_box'>
-                                        <img src='/github.svg' alt='logo_github' class='tilt-animation' />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide >
-
-
-
                 <SwiperSlide className='work_wrapper'>
                     <div className='work_title'>
                         <div>
@@ -539,6 +407,139 @@ function Main() {
                         </SwiperSlide>
                     </Swiper>
                 </SwiperSlide>
+                <SwiperSlide>
+                    <div className='skill_block'>
+                        <div className='left_box'>
+                        </div>
+                        <div className='right_box'>
+                            {/* <h1>
+                                Front
+                            </h1> */}
+                            <div className='logo_wrapper'>
+                                <h2>
+                                    Language
+                                </h2>
+                                <div className='right_box_logo3'>
+                                    <div className='logo_box'>
+                                        <img src='/html.svg' alt='logo_html' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/css.svg' alt='logo_css' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/javascript.svg' alt='logo_js' class='tilt-animation' />
+                                    </div>
+                                </div>
+                                <h2>
+                                    FrameWork
+                                </h2>
+                                <div className='right_box_logo1'>
+                                    <div className='logo_box'>
+                                        <img src='/react.svg' alt='logo_react' class='tilt-animation' />
+                                    </div>
+                                </div>
+                                <h2>
+                                    Library
+                                </h2>
+                                <div className='right_box_logo2'>
+                                    <div className='logo_box'>
+                                        <img src='/redux.svg' alt='logo_redux' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/sass.svg' alt='logo_sass' class='tilt-animation' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide >
+                <SwiperSlide>
+                    <div className='skill_block'>
+                        <div className='left_box'>
+                        </div>
+                        <div className='right_box'>
+                            {/* <h1>
+                                Back
+                            </h1> */}
+                            <div className='logo_wrapper'>
+                                <h2>
+                                    Language
+                                </h2>
+                                <div className='right_box_logo3'>
+                                    <div className='logo_box'>
+                                        <img src='/javascript.svg' alt='logo_js' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/java.svg' alt='logo_java' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/python.svg' alt='logo_python' class='tilt-animation' />
+                                    </div>
+                                </div>
+                                <h2>
+                                    FrameWork
+                                </h2>
+                                <div className='right_box_logo2'>
+                                    <div className='logo_box_large'>
+                                        <img src='/springboot.svg' className='large_svg' alt='logo_spb' />
+                                    </div>
+                                    <div className='logo_box_large'>
+                                        <img src='/node1.svg' className='large_svg' alt='logo_node' />
+                                    </div>
+                                </div>
+                                <h2>
+                                    DB
+                                </h2>
+                                <div className='right_box_logo3'>
+                                    <div className='logo_box'>
+                                        <img src='/oracle.svg' alt='logo_oracle' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/mysql.svg' alt='logo_mysql' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/mongodb.svg' alt='logo_mongodb' class='tilt-animation' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide >
+                <SwiperSlide>
+                    <div className='skill_block'>
+                        <div className='left_box'>
+                        </div>
+                        <div className='right_box'>
+                            {/* <h1>
+                                Etc
+                            </h1> */}
+                            <div className='logo_wrapper'>
+                                <h2>
+                                    Etc
+                                </h2>
+
+                                <div className='right_box_logo3'>
+                                    <div className='logo_box'>
+                                        <img src='/docker.svg' alt='logo_docker' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/firebase.svg' alt='logo_firebase' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/aws.svg' alt='logo_aws' class='tilt-animation' />
+                                    </div>
+                                    <div className='logo_box'>
+                                        <img src='/github.svg' alt='logo_github' class='tilt-animation' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide >
+
+
+
+
             </Swiper >
         </div >
     );
