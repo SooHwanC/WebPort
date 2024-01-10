@@ -43,6 +43,10 @@ function Main() {
         setShowModal(!showModal);
     };
 
+    const toggleModalTrue = () => {
+        setShowModal(true);
+    };
+
     // Swiper 인스턴스를 저장할 상태
     const [swiperInstance, setSwiperInstance] = useState(null);
 
@@ -193,32 +197,66 @@ function Main() {
                     <Swiper navigation={true} modules={[Navigation]} className="port_wrapper">
                         <SwiperSlide>
                             <div className='port_box_inner'>
-                                <div className='port_box_img'>
-                                    <img src='/itty.png' alt='img_itty' />
-                                </div>
+                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/itty.png' alt='img_itty' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/itty.png' alt='img_itty' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/itty.png' alt='img_itty' />
+                                        </div>
+                                    </SwiperSlide>
+                                </Swiper>
                                 <div className='port_box_description'>
                                     <div>
                                         <h2>ITTY</h2>
-                                        <p>
+                                        <h4>
                                             개발자를 위한 IT커뮤니티 ITTY
-                                        </p>
+                                        </h4>
+                                        <h3>💬서비스 설명</h3>
+                                        <p>개발 교육을 받았던 학원에 마땅한 커뮤니티가 없어 스터디, 또는 프로젝트 인원을 구하는데 불편한 점을 느껴 학원 커뮤니티를 개발하게 됐습니다.</p>
+                                        <p>인원 모집, 자유게시판, 포트폴리오, 중고장터, QnA, 익명게시판 등 모든 커뮤니티 기능들을 구현했습니다.</p>
+                                        <p>그동안 써보지 않았던 React, Node.js, MongoDB등 처음 써본 기술들로만 구현했습니다.</p>
+                                        <h3>⭐담당 주요기능</h3>
+                                        <p>
+                                            🟢 MongoDB 환경구축
+                                            🟢 랜더링 시간 최적화 (2초 → 0.5초)
+                                            🟢 1:1쪽지 기능
+                                            🟢 게시글 검색
+                                            🟢 댓글, 대댓글
+                                            🟢 익명 기능구현
+                                            🟢 Text Editor (Quill) + 이미지 드래그 앤 드롭
+                                            🟢 FireBase 이미지 호스팅
+                                            🟢 이미지 크롭 (React Cropper)
+                                            🟢 Swiper 기능구현 (드래그 스크롤)
+                                            🟢 Front Page 제작
+                                            🟢 CRUD
+                                            🟢 배포</p>
+                                        <div className='svg_wrapper'>
+                                            <a href='https://github.com/ITTYofficial/ITTY#itty_official' target="_blank" rel="noopener noreferrer">
+                                                <span>
+                                                    <svg className='svg_github' aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+                                                    <span>ReadMe</span>
+                                                </span>
+                                            </a>
 
-                                        <a href='https://github.com/ITTYofficial/ITTY#itty_official' target="_blank" rel="noopener noreferrer">
-                                            <span>
-                                                <svg className='svg_github' aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-                                                ReadMe
-                                            </span>
-                                        </a>
-
-                                        <a href='http://itty-kr.site' target="_blank" rel="noopener noreferrer">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-                                                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
-                                                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
-                                                </svg>
-                                                웹 페이지 바로가기
-                                            </span>
-                                        </a>
+                                            <a href='http://itty-kr.site' target="_blank" rel="noopener noreferrer">
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+                                                    </svg>
+                                                    웹 페이지 바로가기
+                                                </span>
+                                            </a>
+                                        </div>
                                         <ul>
                                             <li>
                                                 React
@@ -237,13 +275,14 @@ function Main() {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <a href='https://www.notion.so/ITTY-f5805f363bde4b32ab54562aa3e8c14f?pvs=4' target="_blank" rel="noopener noreferrer">
+
                                             <div className='detail_btn'>
                                                 Detail
                                             </div>
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </SwiperSlide>

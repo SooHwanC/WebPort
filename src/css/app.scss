@@ -416,8 +416,9 @@
         .work_title {
             position: absolute;
             width: 100%;
-            top: 23%;
-            margin-left: 4rem;
+            top: 13vh;
+            margin-left: 3rem;
+            z-index: 3;
 
             @media(max-width:768px) {
                 top: 10%;
@@ -465,11 +466,15 @@
             .port_box_inner {
                 width: 1200px;
                 display: flex;
-                height: 100vh;
+                height: 80vh;
                 cursor: grab;
                 margin-left: 4rem;
-                align-items: center;
+                // align-items: center;
                 margin: 0 auto;
+                // background-color: wheat;
+                margin-top: 10vh;
+                border: 5px solid #523832;
+                border-radius: 2rem;
 
                 @media(max-width:1201px) {
                     width: 80%;
@@ -487,11 +492,13 @@
 
 
                 .port_box_img {
-                    width: 45%;
-                    height: 35%;
+                    width: 90%;
+                    height: 50%;
                     max-width: 590px;
                     border-radius: 0.8rem;
                     overflow: hidden;
+                    margin-top: 20%;
+                    margin-left: 10%;
 
                     @media(max-width:768px) {
                         width: 80%;
@@ -511,59 +518,52 @@
                 }
 
                 .port_box_description {
-                    width: 50%;
+                    width: 100%;
                     text-align: left;
                     margin-left: 4rem;
                     display: grid;
-                    align-content: space-between;
+                    margin-top: 2%;
+                    margin-right: 3%;
 
                     @media(max-width:768px) {
                         width: 80%;
                         margin-left: 0;
                     }
 
-                    a {
+                    // a {
 
-                        text-decoration: none;
-                        color: white;
+                    //     text-decoration: none;
+                    //     color: white;
 
-                        .detail_btn {
-                            background-color: rgb(112, 101, 84);
-                            font-size: 1.5rem;
-                            width: 7rem;
-                            border-radius: 2rem;
-                            text-align: center;
-                            padding: 0.5rem 1rem 0.5rem 1rem;
-                            cursor: pointer;
+                    //     .detail_btn {
+                    //         background-color: rgb(112, 101, 84);
+                    //         font-size: 1.5rem;
+                    //         width: 7rem;
+                    //         border-radius: 2rem;
+                    //         text-align: center;
+                    //         padding: 0.5rem 1rem 0.5rem 1rem;
+                    //         cursor: pointer;
 
 
-                            @media(max-width :1024px) {
-                                font-size: 1rem;
-                                padding: 0.3rem 0.8rem 0.3rem 0.8rem;
-                                width: 5rem;
-                            }
+                    //         @media(max-width :1024px) {
+                    //             font-size: 1rem;
+                    //             padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+                    //             width: 5rem;
+                    //         }
 
-                            @media(max-width :500px) {
-                                font-size: 0.8rem;
-                                width: 4rem;
-                                margin-top: 1rem;
-                            }
-                        }
-                    }
-
-                    >div>a>span>svg {
-                        width: 7%;
-                        height: 7%;
-
-                    }
-
-                    .svg_github {}
+                    //         @media(max-width :500px) {
+                    //             font-size: 0.8rem;
+                    //             width: 4rem;
+                    //             margin-top: 1rem;
+                    //         }
+                    //     }
+                    // }
 
                     h2 {
                         font-family: 'NPSfontBold';
                         font-size: 2.7rem;
                         text-align: left;
-                        margin-bottom: 1.5rem;
+                        margin-bottom: 0.5rem;
 
 
                         @media(max-width :1024px) {
@@ -576,11 +576,21 @@
                         }
                     }
 
+                    h3 {
+                        font-family: 'NPSfontBold';
+                        font-size: 1.2rem;
+                        margin-top: 1rem;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    h4 {
+                        margin-bottom: 3rem;
+                    }
+
                     p {
                         // font-family: 'NPSfontBold';
                         font-family: 'NPSfontRegular';
-                        font-size: 1.3rem;
-                        margin-bottom: 1rem;
+                        font-size: 1rem;
                         line-height: 2rem;
 
 
@@ -593,15 +603,32 @@
                         }
                     }
 
-                    span {
-                        color: #8261ff;
+                    .svg_wrapper {
+                        display: flex;
 
-                        @media(max-width :1024px) {
-                            font-size: 1rem;
-                        }
+                        a {
+                            margin-right: 12px;
+                            margin-top: 1rem;
 
-                        @media(max-width :500px) {
-                            font-size: 0.7rem;
+                            span {
+                                color: #8261ff;
+                                display: flex;
+                                align-items: center;
+
+                                @media(max-width :1024px) {
+                                    font-size: 1rem;
+                                }
+
+                                @media(max-width :500px) {
+                                    font-size: 0.7rem;
+                                }
+
+                                svg {
+                                    width: 20px;
+                                    height: 20px;
+                                    margin-right: 4px;
+                                }
+                            }
                         }
                     }
 
@@ -730,4 +757,15 @@
 
 .swiper-button-next {
     margin-right: 2rem;
+}
+
+.port_wrapper_des {
+    .swiper-button-prev::after {
+        margin-top: 19rem;
+    }
+
+    .swiper-button-next::after {
+        margin-top: 19rem;
+    }
+
 }

@@ -37,7 +37,6 @@ function JavaBurger({ closeModal }) {
                     🙆‍♀️ 아기자기한 화면 구현을 통해 사람들의 즐거움을 배로! 😄👍
                 </h3>
             </div>
-            <button onClick={closeModal}>닫기</button>
         </div>
     )
 }
