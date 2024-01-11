@@ -762,10 +762,12 @@
 .port_wrapper_des {
     .swiper-button-prev::after {
         margin-top: 19rem;
+        margin-left: 6rem;
     }
 
     .swiper-button-next::after {
         margin-top: 19rem;
+        margin-right: -4rem;
     }
 
 }

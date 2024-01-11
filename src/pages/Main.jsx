@@ -205,12 +205,12 @@ function Main() {
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className='port_box_img'>
-                                            <img src='/itty.png' alt='img_itty' />
+                                            <img src='/itty_1.png' alt='img_itty' />
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className='port_box_img'>
-                                            <img src='/itty.png' alt='img_itty' />
+                                            <img src='/itty_2.png' alt='img_itty' />
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>
