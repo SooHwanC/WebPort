@@ -287,22 +287,51 @@ function Main() {
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <div className='port_box'>
-                                <div className='port_box_inner'>
-                                    <div className='port_box_img'>
-                                        <img src='/codebridge2.jpg' alt='img_codebridge' />
-                                    </div>
-                                    <div className='port_box_description'>
-                                        <div>
-                                            <h2>Code Bridge</h2>
-                                            <p>
-                                                웹 개발환경과 AI가 포함된 코딩 AI LMS 시스템
-                                            </p>
-
+                            <div className='port_box_inner'>
+                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/codebridge2.jpg' alt='img_codebridge' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/codebridge_1.jpg' alt='img_codebridge' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/codebridge_2.jpg' alt='img_codebridge' />
+                                        </div>
+                                    </SwiperSlide>
+                                </Swiper>
+                                <div className='port_box_description'>
+                                    <div>
+                                        <h2>Code Bridge</h2>
+                                        <h4>
+                                            웹 개발환경과 AI가 포함된 코딩 AI LMS 시스템
+                                        </h4>
+                                        <h3>💬서비스 설명</h3>
+                                        <p>교육부가 2025년부터 초, 중등 교육 과정에서 코딩을 필수과목으로 지정하면서 코딩 교육산업이 엄청난 성장세를 보여주고 있습니다.</p>
+                                        <p>이러한 시장 동향에 웹 개발환경과 AI를 결합한 코딩 AI LMS를 개발하게 되었습니다.</p>
+                                        <h3>⭐담당 주요기능</h3>
+                                        <p>
+                                            🟢 WSL2 + Docker + CodeServer를 통한 IDE 가상화
+                                            🟢 페어코딩
+                                            🟢 코딩 테스트 시스템
+                                            🟢 AI 문제생성, 채점
+                                            🟢 LMS 시스템
+                                            🟢 오답노트, 이의제기
+                                            🟢 WebRTC, WebSocket
+                                            🟢 실시간 강의
+                                            🟢 DB 구조설계
+                                            🟢 배포(AWS, Https)
+                                        </p>
+                                        <div className='svg_wrapper'>
                                             <a href='https://github.com/2023-SMHRD-SW-DataDesign-1/CodeBridge_Front#readme' target="_blank" rel="noopener noreferrer">
                                                 <span>
                                                     <svg className='svg_github' aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-                                                    ReadMe
+                                                    <span>ReadMe</span>
                                                 </span>
                                             </a>
 
@@ -315,135 +344,201 @@ function Main() {
                                                     웹 페이지 바로가기
                                                 </span>
                                             </a>
-                                            <ul>
-                                                <li>
-                                                    React
-                                                </li>
-                                                <li>
-                                                    SpringBoot
-                                                </li>
-                                                <li>
-                                                    Flask
-                                                </li>
-                                                <li>
-                                                    MySql
-                                                </li>
-                                                <li>
-                                                    Docker
-                                                </li>
-                                                <li>
-                                                    WebRTC
-                                                </li>
-                                                <li>
-                                                    WebSocket
-                                                </li>
-                                                <li>
-                                                    OpenAI
-                                                </li>
-                                                <li>
-                                                    LangChain
-                                                </li>
-                                                <li>
-                                                    AWS
-                                                </li>
-                                            </ul>
                                         </div>
-                                        <div>
-                                            <a href='https://www.notion.so/CodeBridge-365c3985ce13457abfda09b8a96a5406?pvs=4' target="_blank" rel="noopener noreferrer">
-                                                <div className='detail_btn'>
-                                                    Detail
-                                                </div>
-                                            </a>
-                                        </div>
+                                        <ul>
+                                            <li>
+                                                React
+                                            </li>
+                                            <li>
+                                                SpringBoot
+                                            </li>
+                                            <li>
+                                                Flask
+                                            </li>
+                                            <li>
+                                                MySql
+                                            </li>
+                                            <li>
+                                                Docker
+                                            </li>
+                                            <li>
+                                                WebRTC
+                                            </li>
+                                            <li>
+                                                WebSocket
+                                            </li>
+                                            <li>
+                                                OpenAI
+                                            </li>
+                                            <li>
+                                                LangChain
+                                            </li>
+                                            <li>
+                                                AWS
+                                            </li>
+                                        </ul>
                                     </div>
+                                    {/* <div>
+                                        <a href='https://www.notion.so/ITTY-f5805f363bde4b32ab54562aa3e8c14f?pvs=4' target="_blank" rel="noopener noreferrer">
+
+                                            <div className='detail_btn'>
+                                                Detail
+                                            </div>
+                                        </a>
+                                    </div> */}
                                 </div>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <div className='port_box'>
-                                <div className='port_box_inner'>
-                                    <div className='port_box_img'>
-                                        <img src='/travelmaker.png' alt='img_travelmaker' />
-                                    </div>
-                                    <div className='port_box_description'>
-                                        <div>
-                                            <h2>Travel Maker</h2>
-                                            <p>
-                                                맞춤형 여행가이드 오픈마켓 플랫폼
-                                            </p>
+                            <div className='port_box_inner'>
+                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/travelmaker.png' alt='img_travelmaker' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/travelmaker_1.png' alt='img_travelmaker' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/travelmaker_2.png' alt='img_travelmaker' />
+                                        </div>
+                                    </SwiperSlide>
+                                </Swiper>
+                                <div className='port_box_description'>
+                                    <div>
+                                        <h2>Travel Maker</h2>
+                                        <h4>
+                                            맞춤형 여행가이드 오픈마켓 플랫폼
+                                        </h4>
+                                        <h3>💬서비스 설명</h3>
+                                        <p>여행 계획에 어려움을 느끼는 소비자를 위한 개인 맞춤형 여행 가이드 오픈마켓 플랫폼입니다.</p>
+                                        <p>엔데믹 이후 여행에 대한 폭발적인 관심을 바탕으로 제작하게 된 프로젝트입니다.</p>
+                                        <p>다양한 API(Port One, Google Maps, SummerNote)를 사용해 볼 수 있었고 다양한 데이터들을 Oracle DB에 저장하고 가져다 쓰는 작업을 통해 많은 기술 향상을 이뤄낼 수 있었습니다.</p>
+                                        <h3>⭐담당 주요기능</h3>
+                                        <p>
+                                            🟢 고수(판매자), 일반유저(구매자) 시스템
+                                            🟢 반응형 웹, 애니메이션
+                                            🟢 PortOne API를 통한 결제 API
+                                            🟢 Google Map API (지역검색, 다중 마커추가)
+                                            🟢 SummerNote API
+                                            🟢 구매이력
+                                            🟢 글 조회 제한
+                                            🟢 중복검사(ajax)
+                                            🟢 리뷰(별점) 기능
+                                            🟢 DB 구조설계
+                                        </p>
+                                        <div className='svg_wrapper'>
                                             <a href='https://github.com/2023-SMHRD-SW-DataDesign-1/TravelMaker' target="_blank" rel="noopener noreferrer">
                                                 <span>
                                                     <svg className='svg_github' aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-                                                    ReadMe
+                                                    <span>ReadMe</span>
                                                 </span>
                                             </a>
-                                            <ul>
-                                                <li>
-                                                    Java
-                                                </li>
-                                                <li>
-                                                    Jsp
-                                                </li>
-                                                <li>
-                                                    Servlet
-                                                </li>
-                                                <li>
-                                                    OracleDB
-                                                </li>
-                                                <li>
-                                                    GoogleMaps
-                                                </li>
-                                                <li>
-                                                    PortOne
-                                                </li>
-                                            </ul>
                                         </div>
-                                        <div>
-                                            <a href='https://www.notion.so/Travel-Maker-53ef2bbc38e14762b2d8be9c94a52690?pvs=4' target="_blank" rel="noopener noreferrer">
-                                                <div className='detail_btn'>
-                                                    Detail
-                                                </div>
-                                            </a>
-                                        </div>
+                                        <ul>
+                                            <li>
+                                                Java
+                                            </li>
+                                            <li>
+                                                Jsp
+                                            </li>
+                                            <li>
+                                                Servlet
+                                            </li>
+                                            <li>
+                                                OracleDB
+                                            </li>
+                                            <li>
+                                                GoogleMaps
+                                            </li>
+                                            <li>
+                                                PortOne
+                                            </li>
+                                        </ul>
                                     </div>
+                                    {/* <div>
+                                        <a href='https://www.notion.so/ITTY-f5805f363bde4b32ab54562aa3e8c14f?pvs=4' target="_blank" rel="noopener noreferrer">
+
+                                            <div className='detail_btn'>
+                                                Detail
+                                            </div>
+                                        </a>
+                                    </div> */}
                                 </div>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <div className='port_box'>
-                                <div className='port_box_inner'>
-                                    <div className='port_box_img'>
-                                        <img src='/javaburger.png' alt='img_javaburger' />
-                                    </div>
-                                    <div className='port_box_description'>
-                                        <div>
-                                            <h2>Java Burger</h2>
-                                            <p>
-                                                햄버거를 만들어 사람들에게 행복을 전달하는 본격! 햄버거 타이쿤
-                                            </p>
+                            <div className='port_box_inner'>
+                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/javaburger.png' alt='img_javaburger' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/javaburger_1.png' alt='img_javaburger' />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className='port_box_img'>
+                                            <img src='/javaburger_2.png' alt='img_javaburger' />
+                                        </div>
+                                    </SwiperSlide>
+                                </Swiper>
+                                <div className='port_box_description'>
+                                    <div>
+                                        <h2>Java Burger</h2>
+                                        <h4>
+                                            햄버거를 만들어 사람들에게 행복을 전달하는 본격! 햄버거 타이쿤
+                                        </h4>
+                                        <h3>💬서비스 설명</h3>
+                                        <p>⌚ 난이도마다 달라지는 레시피, 시간 제한! 스릴 만점 게임 구현 ✔</p>
+                                        <p>🍔 실시간으로 만들어지는 햄버거 애니메이션, 진짜보다 더 진짜 같다!</p>
+                                        <p>✌🏻 2가지 게임모드, 키보드 버전과 마우스 버전! 두 가지 재미를 동시에!</p>
+                                        <p>💛 랭킹 확인을 통해 나의 점수를 실시간으로 확인한다! 나는 과연 몇 등? 🔎</p>
+                                        <h3>⭐담당 주요기능</h3>
+                                        <p>
+                                            🟢 햄버거 making 로직
+                                            🟢 난이도 별 레시피 기능
+                                            🟢 키보드 모드, 마우스 모드 기능
+                                            🟢 난이도 별 손님 이미지
+                                            🟢 시간 제한 기능
+                                            🟢 랭킹 등록 기능
+                                            🟢 bgm 기능
+
+                                            🟢 DB 구조설계
+                                        </p>
+                                        <div className='svg_wrapper'>
                                             <a href='https://github.com/2023-SMHRD-SW-DataDesign-1/DoMyBest' target="_blank" rel="noopener noreferrer">
                                                 <span>
                                                     <svg className='svg_github' aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-                                                    ReadMe
+                                                    <span>ReadMe</span>
                                                 </span>
                                             </a>
-                                            <ul>
-                                                <li>
-                                                    Java
-                                                </li>
-                                            </ul>
                                         </div>
-                                        <div>
-                                            <a href='https://bevel-amusement-3e9.notion.site/JAVA-BURGER-4fb6023011fe40d29dd356bd2afe73b4?pvs=4' target="_blank" rel="noopener noreferrer">
-                                                <div className='detail_btn'>
-                                                    Detail
-                                                </div>
-                                            </a>
-                                        </div>
+                                        <ul>
+                                            <li>
+                                                Java
+                                            </li>
+                                        </ul>
                                     </div>
+                                    {/* <div>
+                                        <a href='https://www.notion.so/ITTY-f5805f363bde4b32ab54562aa3e8c14f?pvs=4' target="_blank" rel="noopener noreferrer">
+
+                                            <div className='detail_btn'>
+                                                Detail
+                                            </div>
+                                        </a>
+                                    </div> */}
                                 </div>
                             </div>
                         </SwiperSlide>
+
                     </Swiper>
                 </SwiperSlide>
                 <SwiperSlide>
