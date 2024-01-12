@@ -225,7 +225,7 @@ function Main() {
                                         <p>인원 모집, 자유게시판, 포트폴리오, 중고장터, QnA, 익명게시판 등 모든 커뮤니티 기능들을 구현했습니다.</p>
                                         <p>그동안 써보지 않았던 React, Node.js, MongoDB등 처음 써본 기술들로만 구현했습니다.</p>
                                         <h3>⭐담당 주요기능</h3>
-                                        <p>
+                                        <p className='port_box_description_role'>
                                             🟢 MongoDB 환경구축
                                             🟢 랜더링 시간 최적화 (2초 → 0.5초)
                                             🟢 1:1쪽지 기능
@@ -315,18 +315,20 @@ function Main() {
                                         <p>교육부가 2025년부터 초, 중등 교육 과정에서 코딩을 필수과목으로 지정하면서 코딩 교육산업이 엄청난 성장세를 보여주고 있습니다.</p>
                                         <p>이러한 시장 동향에 웹 개발환경과 AI를 결합한 코딩 AI LMS를 개발하게 되었습니다.</p>
                                         <h3>⭐담당 주요기능</h3>
-                                        <p>
-                                            🟢 WSL2 + Docker + CodeServer를 통한 IDE 가상화
-                                            🟢 페어코딩
-                                            🟢 코딩 테스트 시스템
-                                            🟢 AI 문제생성, 채점
-                                            🟢 LMS 시스템
-                                            🟢 오답노트, 이의제기
-                                            🟢 WebRTC, WebSocket
-                                            🟢 실시간 강의
-                                            🟢 DB 구조설계
-                                            🟢 배포(AWS, Https)
-                                        </p>
+                                        <div>
+                                            <p className='port_box_description_role'>
+                                                🟢 WSL2 + Docker + CodeServer를 통한 IDE 가상화
+                                                🟢 페어코딩
+                                                🟢 코딩 테스트 시스템
+                                                🟢 AI 문제생성, 채점
+                                                🟢 LMS 시스템
+                                                🟢 오답노트, 이의제기
+                                                🟢 WebRTC, WebSocket
+                                                🟢 실시간 강의
+                                                🟢 DB 구조설계
+                                                🟢 배포(AWS, Https)
+                                            </p>
+                                        </div>
                                         <div className='svg_wrapper'>
                                             <a href='https://github.com/2023-SMHRD-SW-DataDesign-1/CodeBridge_Front#readme' target="_blank" rel="noopener noreferrer">
                                                 <span>
@@ -419,7 +421,7 @@ function Main() {
                                         <p>엔데믹 이후 여행에 대한 폭발적인 관심을 바탕으로 제작하게 된 프로젝트입니다.</p>
                                         <p>다양한 API(Port One, Google Maps, SummerNote)를 사용해 볼 수 있었고 다양한 데이터들을 Oracle DB에 저장하고 가져다 쓰는 작업을 통해 많은 기술 향상을 이뤄낼 수 있었습니다.</p>
                                         <h3>⭐담당 주요기능</h3>
-                                        <p>
+                                        <p className='port_box_description_role'>
                                             🟢 고수(판매자), 일반유저(구매자) 시스템
                                             🟢 반응형 웹, 애니메이션
                                             🟢 PortOne API를 통한 결제 API
@@ -502,7 +504,7 @@ function Main() {
                                         <p>✌🏻 2가지 게임모드, 키보드 버전과 마우스 버전! 두 가지 재미를 동시에!</p>
                                         <p>💛 랭킹 확인을 통해 나의 점수를 실시간으로 확인한다! 나는 과연 몇 등? 🔎</p>
                                         <h3>⭐담당 주요기능</h3>
-                                        <p>
+                                        <p className='port_box_description_role'>
                                             🟢 햄버거 making 로직
                                             🟢 난이도 별 레시피 기능
                                             🟢 키보드 모드, 마우스 모드 기능

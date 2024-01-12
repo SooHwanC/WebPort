@@ -420,8 +420,13 @@
             margin-left: 3rem;
             z-index: 3;
 
+            @media(max-width:1330px) {
+                margin-left: 5rem;
+            }
+
             @media(max-width:768px) {
                 top: 10%;
+                display: none;
             }
 
             @media(max-width :500px) {
@@ -476,17 +481,21 @@
                 border: 5px solid #523832;
                 border-radius: 2rem;
 
+                @media(max-width:1330px) {
+                    width: 85%;
+                }
+
                 @media(max-width:1201px) {
                     width: 80%;
                 }
 
                 @media(max-width:768px) {
                     flex-direction: column;
-                    justify-content: center;
+                    // justify-content: center;
                 }
 
                 @media(max-width :500px) {
-                    margin-top: 1rem;
+                    // margin-top: 1rem;
                 }
 
 
@@ -500,13 +509,18 @@
                     margin-top: 20%;
                     margin-left: 10%;
 
+                    @media(max-width :945px) {
+                        margin-top: 30%;
+                    }
+
                     @media(max-width:768px) {
                         width: 80%;
-                        margin-bottom: 3rem;
+                        margin-top: 5%;
+                        height: 65%;
                     }
 
                     @media(max-width :500px) {
-                        height: 25%;
+                        // height: 25%;
                         margin-bottom: 1rem;
                     }
 
@@ -527,7 +541,8 @@
 
                     @media(max-width:768px) {
                         width: 80%;
-                        margin-left: 0;
+                        // margin-left: 0;
+                        margin:0 auto
                     }
 
                     // a {
@@ -565,6 +580,10 @@
                         text-align: left;
                         margin-bottom: 0.5rem;
 
+                        @media(max-width:1201px) {
+                            font-size: 2.5rem;
+                        }
+
 
                         @media(max-width :1024px) {
                             font-size: 2.3rem;
@@ -581,11 +600,26 @@
                         font-size: 1.2rem;
                         margin-top: 1rem;
                         margin-bottom: 0.5rem;
+
+                        @media(max-width:1201px) {
+                            font-size: 1.1rem;
+                        }
+
+                        @media(max-width :900px) {
+                            display: none;
+                        }
                     }
 
                     h4 {
                         margin-bottom: 3rem;
+
+                        @media(max-width:1201px) {
+                            margin-bottom: 2rem;
+                        }
                     }
+
+
+
 
                     p {
                         // font-family: 'NPSfontBold';
@@ -593,15 +627,22 @@
                         font-size: 1rem;
                         line-height: 2rem;
 
-
-                        @media(max-width :1024px) {
-                            font-size: 1.1rem;
+                        @media(max-width:1201px) {
+                            font-size: 0.95rem;
                         }
+
 
                         @media(max-width :500px) {
                             font-size: 0.8rem;
                         }
                     }
+
+                    .port_box_description_role {
+                        @media(max-width :900px) {
+                            display: none;
+                        }
+                    }
+
 
                     .svg_wrapper {
                         display: flex;
@@ -609,6 +650,10 @@
                         a {
                             margin-right: 12px;
                             margin-top: 1rem;
+
+                            @media(max-width:1201px) {
+                                margin-top: 0;
+                            }
 
                             span {
                                 color: #8261ff;
@@ -637,6 +682,10 @@
                         flex-wrap: wrap;
                         gap: 0.8rem;
                         margin-top: 1rem;
+
+                        @media(max-width :945px) {
+                            display: none;
+                        }
 
                         @media(max-width :500px) {
                             margin-top: 1rem;
@@ -760,14 +809,27 @@
 }
 
 .port_wrapper_des {
+    @media(max-width:768px) {
+        height: 50%;
+    }
+
     .swiper-button-prev::after {
         margin-top: 19rem;
         margin-left: 6rem;
+
+        @media(max-width:768px) {
+            margin-top: 16rem;
+        }
     }
 
     .swiper-button-next::after {
         margin-top: 19rem;
         margin-right: -4rem;
+
+        @media(max-width:768px) {
+            margin-top: 16rem;
+            margin-right: 3rem;
+        }
     }
 
 }
