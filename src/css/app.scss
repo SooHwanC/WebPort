@@ -15,6 +15,10 @@
         align-items: center;
         padding: 1.5rem 3rem 1.5rem 3rem;
 
+        @media (max-width:780px) {
+            padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+        }
+
         .nav_box_left {
             font-family: 'GangwonEduPowerExtraBoldA';
             font-size: 2rem;
@@ -38,6 +42,15 @@
                 cursor: pointer;
                 text-align: center;
                 width: 150px;
+                
+                @media (max-width:710px) {
+                    width: 100px;
+                }
+
+                @media (max-width:555px) {
+                    font-size: 1.2rem;
+                    width: 70px;
+                }
             }
 
             .active-menu-item {
@@ -332,6 +345,11 @@
                         height: 70px;
                     }
 
+                    @media(max-width:530px) {
+                        width: 80px;
+                        height: 80px;
+                    }
+
                     .large_svg {
                         width: 32%;
                         animation: tilt 2s infinite alternate ease-in-out;
@@ -542,7 +560,7 @@
                     @media(max-width:768px) {
                         width: 80%;
                         // margin-left: 0;
-                        margin:0 auto
+                        margin: 0 auto
                     }
 
                     // a {
@@ -786,6 +804,10 @@
 
     @media(max-width :768px) {
         font-size: 3.5rem;
+    }
+
+    @media(max-width :530px) {
+        font-size: 3rem;
     }
 
     @media(max-width :500px) {
