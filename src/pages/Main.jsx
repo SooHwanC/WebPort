@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Pagination, Navigation } from 'swiper/modules';
+import { Mousewheel, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -10,12 +10,13 @@ import JavaBurger from './JavaBurger';
 function Main() {
 
 
+
     const [activeSlide, setActiveSlide] = useState(0);
 
     const handleSlideChange = (swiper) => {
         setActiveSlide(swiper.activeIndex);
     };
-    console.log('activeSlide', activeSlide);
+    // console.log('activeSlide', activeSlide);
 
     const [transitionDuration, setTransitionDuration] = useState('0.5s');
 
@@ -37,10 +38,16 @@ function Main() {
 
     // 모달 관련
     const [showModal, setShowModal] = useState(false); // 모달 표시 상태
+    const [showModal_role, setShowModal_role] = useState(false); // 모달 표시 상태
 
     // 모달 토글 함수
     const toggleModal = () => {
         setShowModal(!showModal);
+    };
+
+    const toggleModal_role = () => {
+        setShowModal_role(!showModal_role);
+        console.log('클릭됨');
     };
 
     const toggleModalTrue = () => {
@@ -197,7 +204,12 @@ function Main() {
                     <Swiper navigation={true} modules={[Navigation]} className="port_wrapper">
                         <SwiperSlide>
                             <div className='port_box_inner'>
-                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                <Swiper
+                                    navigation={true}
+                                    modules={[Autoplay, Navigation]}
+                                    className="port_wrapper_des"
+                                // autoplay={{ delay: 2500, disableOnInteraction: false, }}
+                                >
                                     <SwiperSlide>
                                         <div className='port_box_img'>
                                             <img src='/itty.png' alt='img_itty' />
@@ -214,6 +226,7 @@ function Main() {
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>
+
                                 <div className='port_box_description'>
                                     <div>
                                         <h2>ITTY</h2>
@@ -221,24 +234,30 @@ function Main() {
                                             개발자를 위한 IT커뮤니티 ITTY
                                         </h4>
                                         <h3>💬서비스 설명</h3>
-                                        <p>개발 교육을 받았던 학원에 마땅한 커뮤니티가 없어 스터디, 또는 프로젝트 인원을 구하는데 불편한 점을 느껴 학원 커뮤니티를 개발하게 됐습니다.</p>
-                                        <p>인원 모집, 자유게시판, 포트폴리오, 중고장터, QnA, 익명게시판 등 모든 커뮤니티 기능들을 구현했습니다.</p>
-                                        <p>그동안 써보지 않았던 React, Node.js, MongoDB등 처음 써본 기술들로만 구현했습니다.</p>
-                                        <h3>⭐담당 주요기능</h3>
-                                        <p className='port_box_description_role'>
-                                            🟢 MongoDB 환경구축
-                                            🟢 랜더링 시간 최적화 (2초 → 0.5초)
-                                            🟢 1:1쪽지 기능
-                                            🟢 게시글 검색
-                                            🟢 댓글, 대댓글
-                                            🟢 익명 기능구현
-                                            🟢 Text Editor (Quill) + 이미지 드래그 앤 드롭
-                                            🟢 FireBase 이미지 호스팅
-                                            🟢 이미지 크롭 (React Cropper)
-                                            🟢 Swiper 기능구현 (드래그 스크롤)
-                                            🟢 Front Page 제작
-                                            🟢 CRUD
-                                            🟢 배포</p>
+                                        <p>개발 교육을 받았던 학원에 마땅한 <span>커뮤니티</span>가 없어 스터디, 또는 프로젝트 인원을 구하는데 불편한 점을 느껴 학원 커뮤니티를 개발하게 됐습니다.<br />
+                                            인원 모집, 자유게시판, 포트폴리오, 중고장터, QnA, 익명게시판 등 <span>모든 커뮤니티 기능</span>들을 구현했습니다.<br />
+                                            그동안 써보지 않았던 React, Node.js, MongoDB등 <span>처음 써본</span> 기술들로만 구현했습니다.</p>
+                                        <div className='port_box_role'>
+                                            <h3>⭐담당 주요기능</h3>
+                                            <p onClick={toggleModal_role}>click</p>
+                                        </div>
+                                        {showModal_role &&
+
+                                            <p className='port_box_description_role'>
+                                                🟢 MongoDB 환경구축
+                                                🟢 랜더링 시간 최적화 (2초 → 0.5초)
+                                                🟢 1:1쪽지 기능
+                                                🟢 게시글 검색
+                                                🟢 댓글, 대댓글
+                                                🟢 익명 기능구현
+                                                🟢 Text Editor (Quill) + 이미지 드래그 앤 드롭
+                                                🟢 FireBase 이미지 호스팅
+                                                🟢 이미지 크롭 (React Cropper)
+                                                🟢 Swiper 기능구현 (드래그 스크롤)
+                                                🟢 Front Page 제작
+                                                🟢 CRUD
+                                                🟢 배포</p>
+                                        }
                                         <div className='svg_wrapper'>
                                             <a href='https://github.com/ITTYofficial/ITTY#itty_official' target="_blank" rel="noopener noreferrer">
                                                 <span>
@@ -257,7 +276,7 @@ function Main() {
                                                 </span>
                                             </a>
                                         </div>
-                                        <ul>
+                                        <ul className={showModal_role ? 'hidden' : ''}>
                                             <li>
                                                 React
                                             </li>
@@ -288,7 +307,12 @@ function Main() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='port_box_inner'>
-                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                <Swiper
+                                    navigation={true}
+                                    modules={[Autoplay, Navigation]}
+                                    className="port_wrapper_des"
+                                    autoplay={{ delay: 2500, disableOnInteraction: false, }}
+                                >
                                     <SwiperSlide>
                                         <div className='port_box_img'>
                                             <img src='/codebridge2.jpg' alt='img_codebridge' />
@@ -312,10 +336,14 @@ function Main() {
                                             웹 개발환경과 AI가 포함된 코딩 AI LMS 시스템
                                         </h4>
                                         <h3>💬서비스 설명</h3>
-                                        <p>교육부가 2025년부터 초, 중등 교육 과정에서 코딩을 필수과목으로 지정하면서 코딩 교육산업이 엄청난 성장세를 보여주고 있습니다.</p>
-                                        <p>이러한 시장 동향에 웹 개발환경과 AI를 결합한 코딩 AI LMS를 개발하게 되었습니다.</p>
-                                        <h3>⭐담당 주요기능</h3>
-                                        <div>
+                                        <p><span>교육부</span>가 2025년부터 초, 중등 교육 과정에서 <span>코딩</span>을 <span>필수과목</span>으로 지정하면서 코딩 교육산업이 엄청난 성장세를 보여주고 있습니다.</p>
+                                        <p>이러한 시장 동향에 <span>웹 개발환경</span>과 <span>AI</span>를 결합한 코딩 AI <span>LMS</span>를 개발하게 되었습니다.</p>
+                                        <div className='port_box_role'>
+                                            <h3>⭐담당 주요기능</h3>
+                                            <p onClick={toggleModal_role}>click</p>
+                                        </div>
+                                        {showModal_role &&
+
                                             <p className='port_box_description_role'>
                                                 🟢 WSL2 + Docker + CodeServer를 통한 IDE 가상화
                                                 🟢 페어코딩
@@ -328,7 +356,7 @@ function Main() {
                                                 🟢 DB 구조설계
                                                 🟢 배포(AWS, Https)
                                             </p>
-                                        </div>
+                                        }
                                         <div className='svg_wrapper'>
                                             <a href='https://github.com/2023-SMHRD-SW-DataDesign-1/CodeBridge_Front#readme' target="_blank" rel="noopener noreferrer">
                                                 <span>
@@ -347,7 +375,7 @@ function Main() {
                                                 </span>
                                             </a>
                                         </div>
-                                        <ul>
+                                        <ul className={showModal_role ? 'hidden' : ''}>
                                             <li>
                                                 React
                                             </li>
@@ -393,7 +421,12 @@ function Main() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='port_box_inner'>
-                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                <Swiper
+                                    navigation={true}
+                                    modules={[Autoplay, Navigation]}
+                                    className="port_wrapper_des"
+                                    autoplay={{ delay: 2500, disableOnInteraction: false, }}
+                                >
                                     <SwiperSlide>
                                         <div className='port_box_img'>
                                             <img src='/travelmaker.png' alt='img_travelmaker' />
@@ -417,22 +450,27 @@ function Main() {
                                             맞춤형 여행가이드 오픈마켓 플랫폼
                                         </h4>
                                         <h3>💬서비스 설명</h3>
-                                        <p>여행 계획에 어려움을 느끼는 소비자를 위한 개인 맞춤형 여행 가이드 오픈마켓 플랫폼입니다.</p>
+                                        <p><span>여행 계획</span>에 어려움을 느끼는 소비자를 위한 개인 <span>맞춤형 여행 가이드 오픈마켓 플랫폼</span>입니다.</p>
                                         <p>엔데믹 이후 여행에 대한 폭발적인 관심을 바탕으로 제작하게 된 프로젝트입니다.</p>
-                                        <p>다양한 API(Port One, Google Maps, SummerNote)를 사용해 볼 수 있었고 다양한 데이터들을 Oracle DB에 저장하고 가져다 쓰는 작업을 통해 많은 기술 향상을 이뤄낼 수 있었습니다.</p>
-                                        <h3>⭐담당 주요기능</h3>
-                                        <p className='port_box_description_role'>
-                                            🟢 고수(판매자), 일반유저(구매자) 시스템
-                                            🟢 반응형 웹, 애니메이션
-                                            🟢 PortOne API를 통한 결제 API
-                                            🟢 Google Map API (지역검색, 다중 마커추가)
-                                            🟢 SummerNote API
-                                            🟢 구매이력
-                                            🟢 글 조회 제한
-                                            🟢 중복검사(ajax)
-                                            🟢 리뷰(별점) 기능
-                                            🟢 DB 구조설계
-                                        </p>
+                                        <p>다양한 <span>API</span>(Port One, Google Maps, SummerNote)를 사용해 볼 수 있었고 다양한 데이터들을 Oracle DB에 저장하고 가져다 쓰는 작업을 통해 많은 <span>기술 향상</span>을 이뤄낼 수 있었습니다.</p>
+                                        <div className='port_box_role'>
+                                            <h3>⭐담당 주요기능</h3>
+                                            <p onClick={toggleModal_role}>click</p>
+                                        </div>
+                                        {showModal_role &&
+                                            <p className='port_box_description_role'>
+                                                🟢 고수(판매자), 일반유저(구매자) 시스템
+                                                🟢 반응형 웹, 애니메이션
+                                                🟢 PortOne API를 통한 결제 API
+                                                🟢 Google Map API (지역검색, 다중 마커추가)
+                                                🟢 SummerNote API
+                                                🟢 구매이력
+                                                🟢 글 조회 제한
+                                                🟢 중복검사(ajax)
+                                                🟢 리뷰(별점) 기능
+                                                🟢 DB 구조설계
+                                            </p>
+                                        }
                                         <div className='svg_wrapper'>
                                             <a href='https://github.com/2023-SMHRD-SW-DataDesign-1/TravelMaker' target="_blank" rel="noopener noreferrer">
                                                 <span>
@@ -441,7 +479,7 @@ function Main() {
                                                 </span>
                                             </a>
                                         </div>
-                                        <ul>
+                                        <ul className={showModal_role ? 'hidden' : ''}>
                                             <li>
                                                 Java
                                             </li>
@@ -475,7 +513,12 @@ function Main() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='port_box_inner'>
-                                <Swiper navigation={true} modules={[Navigation]} className="port_wrapper_des">
+                                <Swiper
+                                    navigation={true}
+                                    modules={[Autoplay, Navigation]}
+                                    className="port_wrapper_des"
+                                    autoplay={{ delay: 2500, disableOnInteraction: false, }}
+                                >
                                     <SwiperSlide>
                                         <div className='port_box_img'>
                                             <img src='/javaburger.png' alt='img_javaburger' />
@@ -499,10 +542,10 @@ function Main() {
                                             햄버거를 만들어 사람들에게 행복을 전달하는 본격! 햄버거 타이쿤
                                         </h4>
                                         <h3>💬서비스 설명</h3>
-                                        <p>⌚ 난이도마다 달라지는 레시피, 시간 제한! 스릴 만점 게임 구현 ✔</p>
-                                        <p>🍔 실시간으로 만들어지는 햄버거 애니메이션, 진짜보다 더 진짜 같다!</p>
-                                        <p>✌🏻 2가지 게임모드, 키보드 버전과 마우스 버전! 두 가지 재미를 동시에!</p>
-                                        <p>💛 랭킹 확인을 통해 나의 점수를 실시간으로 확인한다! 나는 과연 몇 등? 🔎</p>
+                                        <p>1. <span>난이도</span>마다 <span>달라지는</span> 레시피, <span>시간 제한</span>! 스릴 만점 게임 구현</p>
+                                        <p>2. 실시간으로 만들어지는 햄버거 <span>애니메이션</span>, 진짜보다 더 진짜 같다!</p>
+                                        <p>3. 2가지 <span>게임모드</span>, 키보드 버전과 마우스 버전! 두 가지 재미를 동시에!</p>
+                                        <p>4. <span>랭킹</span> 확인을 통해 나의 점수를 실시간으로 확인한다! 나는 과연 몇 등?</p>
                                         <h3>⭐담당 주요기능</h3>
                                         <p className='port_box_description_role'>
                                             🟢 햄버거 making 로직
@@ -523,9 +566,12 @@ function Main() {
                                                 </span>
                                             </a>
                                         </div>
-                                        <ul>
+                                        <ul className={showModal_role ? 'hidden' : ''}>
                                             <li>
                                                 Java
+                                            </li>
+                                            <li>
+                                                OracleDB
                                             </li>
                                         </ul>
                                     </div>
@@ -654,7 +700,7 @@ function Main() {
                                     Etc
                                 </h2>
 
-                                <div className='right_box_logo3'>
+                                <div className='right_box_logo4'>
                                     <div className='logo_box'>
                                         <img src='/docker.svg' alt='logo_docker' class='tilt-animation' />
                                     </div>
