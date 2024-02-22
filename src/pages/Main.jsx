@@ -208,7 +208,7 @@ function Main() {
                                     navigation={true}
                                     modules={[Autoplay, Navigation]}
                                     className="port_wrapper_des"
-                                // autoplay={{ delay: 2500, disableOnInteraction: false, }}
+                                    autoplay={{ delay: 2500, disableOnInteraction: false, }}
                                 >
                                     <SwiperSlide>
                                         <div className='port_box_img'>
