@@ -827,6 +827,21 @@
         }
     }
 
+    .copyright {
+        color: white;
+        height: 100vh;
+        display: grid;
+        align-content: center;
+
+        p {
+            font-size: 18p;
+        }
+
+        span {
+            color: #999999;
+        }
+    }
+
 }
 
 

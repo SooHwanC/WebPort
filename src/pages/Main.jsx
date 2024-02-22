@@ -401,9 +401,6 @@ function Main() {
                                                 OpenAI
                                             </li>
                                             <li>
-                                                LangChain
-                                            </li>
-                                            <li>
                                                 AWS
                                             </li>
                                         </ul>
@@ -546,18 +543,24 @@ function Main() {
                                         <p>2. 실시간으로 만들어지는 햄버거 <span>애니메이션</span>, 진짜보다 더 진짜 같다!</p>
                                         <p>3. 2가지 <span>게임모드</span>, 키보드 버전과 마우스 버전! 두 가지 재미를 동시에!</p>
                                         <p>4. <span>랭킹</span> 확인을 통해 나의 점수를 실시간으로 확인한다! 나는 과연 몇 등?</p>
-                                        <h3>⭐담당 주요기능</h3>
-                                        <p className='port_box_description_role'>
-                                            🟢 햄버거 making 로직
-                                            🟢 난이도 별 레시피 기능
-                                            🟢 키보드 모드, 마우스 모드 기능
-                                            🟢 난이도 별 손님 이미지
-                                            🟢 시간 제한 기능
-                                            🟢 랭킹 등록 기능
-                                            🟢 bgm 기능
+                                        <div className='port_box_role'>
+                                            <h3>⭐담당 주요기능</h3>
+                                            <p onClick={toggleModal_role}>click</p>
+                                        </div>
+                                        {showModal_role &&
 
-                                            🟢 DB 구조설계
-                                        </p>
+                                            <p className='port_box_description_role'>
+                                                🟢 햄버거 making 로직
+                                                🟢 난이도 별 레시피 기능
+                                                🟢 키보드 모드, 마우스 모드 기능
+                                                🟢 난이도 별 손님 이미지
+                                                🟢 시간 제한 기능
+                                                🟢 랭킹 등록 기능
+                                                🟢 bgm 기능
+
+                                                🟢 DB 구조설계
+                                            </p>
+                                        }
                                         <div className='svg_wrapper'>
                                             <a href='https://github.com/2023-SMHRD-SW-DataDesign-1/DoMyBest' target="_blank" rel="noopener noreferrer">
                                                 <span>
@@ -719,6 +722,17 @@ function Main() {
                     </div>
                 </SwiperSlide >
 
+                <SwiperSlide>
+                    <div className='copyright'>
+                        <p>
+                            본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+                        </p>
+                        <span>
+                            @ 2024. Choi Soo Hwan. All rights reserved.
+                        </span>
+                    </div>
+
+                </SwiperSlide >
 
 
 
