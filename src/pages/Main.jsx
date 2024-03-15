@@ -57,6 +57,7 @@ function Main() {
     // Swiper 인스턴스를 저장할 상태
     const [swiperInstance, setSwiperInstance] = useState(null);
 
+    
     // Swiper 인스턴스가 준비되면 저장
     const handleSwiper = (swiper) => {
         setSwiperInstance(swiper);
