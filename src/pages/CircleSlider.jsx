@@ -131,6 +131,7 @@ const CircularSlider = () => {
             api.start({ rotate: -currentSlide * (stepAngle * 180 / Math.PI), immediate: false });
         }
     }, { axis: 'x', preventScroll: true });
+    
 
     return (
         <div className="slider">
