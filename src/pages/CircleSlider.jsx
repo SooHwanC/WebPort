@@ -46,6 +46,7 @@ const CircularSlider = () => {
         api.start({ rotate: newRotate, immediate: false });
     }, [currentSlide, api, stepAngle]);
 
+    // 자동 슬라이드
     // useEffect(() => {
     //     let interval;
     //     if (isAutoplayRunning) {
@@ -116,8 +117,8 @@ const CircularSlider = () => {
             const rotation = -currentSlide * (stepAngle * 180 / Math.PI) + mx / 2;
             api.start({ rotate: rotation, immediate: true });
         } else if (last) {
-            const moveThreshold = 20;
-            const velocityThreshold = 0.5;
+            const moveThreshold = 10;
+            const velocityThreshold = 0.2;
 
             if (Math.abs(mx) > moveThreshold || Math.abs(vx) > velocityThreshold) {
                 // 방향 결정 (방향을 반대로 변경)
@@ -131,7 +132,7 @@ const CircularSlider = () => {
             api.start({ rotate: -currentSlide * (stepAngle * 180 / Math.PI), immediate: false });
         }
     }, { axis: 'x', preventScroll: true });
-    
+
 
     return (
         <div className="slider">
