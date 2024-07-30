@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../css/app.scss';
 import JavaBurger from './JavaBurger';
+import CircularSlider from './CircleSlider_fix';
 
 function Main() {
 
@@ -196,6 +197,14 @@ function Main() {
                         </div>
                     </div>
                 </SwiperSlide >
+                <SwiperSlide>
+
+                    <CircularSlider />
+
+                </SwiperSlide>
+
+
+
                 <SwiperSlide className='work_wrapper'>
                     <div className='work_title'>
                         <div>

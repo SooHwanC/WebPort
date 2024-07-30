@@ -1,0 +1,39 @@
+.slider {
+    width: 100%;
+    height: 100%;
+
+    .circular-slider {
+        width: 100%;
+        height: 100%;
+
+        .wrapper {
+
+            .slides-holder{
+                border-radius: 50%;
+                border: 2px solid #8EB8E5;
+                -webkit-transform-origin: center;
+                -ms-transform-origin: center;
+                transform-origin: center;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                position: relative;
+                z-index: 100;
+            }
+
+            .descriptions{
+                color: white;
+            }
+
+
+        }
+    }
+}

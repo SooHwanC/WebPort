@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useDrag } from '@use-gesture/react';
-import '../css/main.css';
+// import '../css/main.css';
 
 const CircularSlider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,15 +21,19 @@ const CircularSlider = () => {
         { image: '/slider/chrome.png', title: 'Chrome' },
     ];
 
-    const stepAngle = (2 * Math.PI) / slides.length;
+    const stepAngle = (2 * Math.PI) / slides.length;  // 2 * Math.PI = 360
     const sliderSize = 100;
     const slideSize = 15;
     const animationDuration = 600;
     const autoplayInterval = 2500;
 
+
+    // initial animation value setting
     const [{ rotate }, api] = useSpring(() => ({
-        rotate: 0,
-        config: { mass: 1, tension: 120, friction: 14 },
+        rotate: 0, // 초기 회전각
+        config: { mass: 1, tension: 120, friction: 14 }, // mass: 질량 (무겁게), tention: 스프링 강도 (빠르게), friction: 마찰력 (안정화)
+
+        // 로깅
         onChange: (result) => {
             console.log('Rotate changed:', result.value.rotate);
         }
@@ -37,8 +41,8 @@ const CircularSlider = () => {
 
     useEffect(() => {
         onResize();
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
+        window.addEventListener('resize', onResize);  // resize 이벤트에 onResize 리스너로 등록
+        return () => window.removeEventListener('resize', onResize);  // 컴포넌트 언마운트or재실행 전에 리스너 제거 (메모리누수)
     }, []);
 
     useEffect(() => {
@@ -57,8 +61,8 @@ const CircularSlider = () => {
 
     const onResize = () => {
         if (wrapperRef.current) {
-            const w = wrapperRef.current.parentNode.getBoundingClientRect().width;
-            const h = wrapperRef.current.parentNode.getBoundingClientRect().height;
+            const w = wrapperRef.current.parentNode.getBoundingClientRect().width;  // 부모노드 너비
+            const h = wrapperRef.current.parentNode.getBoundingClientRect().height;  // 부모노드 높이
             const radius = 2 * h <= w ? h * sliderSize / 100 : (w / 2) * sliderSize / 100;
             setSize(Math.round(radius));
         }
@@ -114,11 +118,11 @@ const CircularSlider = () => {
 
         if (active) {
             // 드래그 중 실시간 회전 (방향을 반대로 변경)
-            const rotation = -currentSlide * (stepAngle * 180 / Math.PI) + mx / 2;
+            const rotation = -currentSlide * (stepAngle * 180 / Math.PI) + mx * 2;
             api.start({ rotate: rotation, immediate: true });
         } else if (last) {
-            const moveThreshold = 10;
-            const velocityThreshold = 0.2;
+            const moveThreshold = 1;
+            const velocityThreshold = 0.1;
 
             if (Math.abs(mx) > moveThreshold || Math.abs(vx) > velocityThreshold) {
                 // 방향 결정 (방향을 반대로 변경)
