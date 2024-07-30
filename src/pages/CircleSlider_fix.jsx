@@ -56,7 +56,7 @@ const CircularSlider = () => {
     return (
         <div className="slider" >
             <div className="circular-slider circular-slider-1">
-                <div className="wrapper" style={{ width: '100%', height: '100%', position: 'relative' }}>
+                <div className="wrapper">
                     {/* 수동조작 */}
                     {/* <div className="controls">
                         <div className="controls__left" onClick={() => rotateSlider(1)}>
@@ -66,7 +66,7 @@ const CircularSlider = () => {
                             <div className="icon-wrapper"><i className="far fa-arrow-alt-circle-right"></i></div>
                         </div>
                     </div> */}
-                    <div className="descriptions" style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
+                    <div className="descriptions">
                         {slides.map((slide, index) => (
                             <div key={index} className={`descriptions__item ${index === currentSlide ? 'descriptions__item_visible' : ''}`} style={{ display: index === currentSlide ? 'block' : 'none' }}>
                                 <h1>{slide.title}</h1>

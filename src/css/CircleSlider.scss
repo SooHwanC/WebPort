@@ -7,6 +7,9 @@
         height: 100%;
 
         .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
 
             .slides-holder{
                 border-radius: 50%;
@@ -31,6 +34,12 @@
 
             .descriptions{
                 color: white;
+                display: flex;
+                align-items: center;
+
+                h1{
+                    font-size: 5rem;
+                }
             }
 
 
