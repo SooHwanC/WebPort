@@ -11,7 +11,7 @@
             height: 100%;
             display: flex;
 
-            .slides-holder{
+            .slides-holder {
                 border-radius: 50%;
                 border: 2px solid #8EB8E5;
                 -webkit-transform-origin: center;
@@ -32,16 +32,41 @@
                 z-index: 100;
             }
 
-            .descriptions{
+            .descriptions {
                 color: white;
                 display: flex;
                 align-items: center;
+                width: 50%;
 
-                h1{
+
+                h1 {
                     font-size: 5rem;
                 }
             }
 
+            .slides_wrapper {
+                width: 50%;
+                position: relative;
+
+                .slides-holder {
+                    position: absolute;
+                    bottom: -175px;
+                    right: -226px;
+
+                    .slides-holder__item {
+                        // width: 60px;
+                        // height: 60px;
+                        max-width: 200px;
+                        max-height: 200px;
+                        width: 30%;
+                        height: 30%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                    }
+
+                }
+            }
 
         }
     }
