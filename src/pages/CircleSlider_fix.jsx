@@ -3,6 +3,11 @@ import { useSpring, animated } from 'react-spring';
 import { useDrag } from '@use-gesture/react';
 // import '../css/main.css';
 import '../SCSS/components/CircleSlider.scss';
+import JobtalksModal from '../modals/JobtalksModal';
+import IttyMoadl from '../modals/IttyMoadl';
+import CodebridgeModal from '../modals/CodebridgeModal';
+import TravelmakerModal from '../modals/TravelmakerModal';
+import JavaburgerModal from '../modals/JavaburgerModal';
 
 const CircularSlider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,7 +20,7 @@ const CircularSlider = () => {
             title: 'JOB<br/>TALKS',
             sub_title: 'LLM + RAG 첨삭 서비스',
             tech_stacks: [
-                'JS', 'JAVA', 'Spring'
+                'React', 'Vue3', 'Express', 'MongoDB', 'LLM', 'FineTuning', 'RAG'
             ]
         },
         {
@@ -23,7 +28,7 @@ const CircularSlider = () => {
             title: 'ITTY',
             sub_title: '개발자 커뮤니티',
             tech_stacks: [
-                'JS', 'JAVA', 'Spring'
+                'React', 'Express', 'MongoDB', 'AWS'
             ]
         },
         {
@@ -31,7 +36,7 @@ const CircularSlider = () => {
             title: 'CODE<br/>BRIDGE',
             sub_title: '코딩 교육 LMS',
             tech_stacks: [
-                'JS', 'JAVA', 'Spring'
+                'React', 'SpringBoot', 'MySql', 'Doker', 'AWS'
             ]
         },
         {
@@ -39,7 +44,7 @@ const CircularSlider = () => {
             title: 'TRAVEL<br/>MAKER',
             sub_title: '여행계획 거래 플랫폼',
             tech_stacks: [
-                'JS', 'JAVA', 'Spring'
+                'JSP', 'Servlet', 'OracleDB'
             ]
         },
         {
@@ -47,7 +52,7 @@ const CircularSlider = () => {
             title: 'JAVA<br/>BURGER',
             sub_title: '햄버거 만들기 타이쿤',
             tech_stacks: [
-                'JS', 'JAVA', 'Spring'
+                'JAVA', 'OracleDB'
             ]
         },
     ];
@@ -157,6 +162,15 @@ const CircularSlider = () => {
 
     const [hasInteracted, setHasInteracted] = useState(false);
 
+    const [openModal, setOpenModal] = useState(null);
+
+    const openModalForSlide = (slideIndex) => {
+        setOpenModal(slideIndex);
+    }
+
+    const closeModal = () => {
+        setOpenModal(null);
+    }
     return (
         <div className="slider">
             <div className="circular-slider circular-slider-1">
@@ -174,6 +188,15 @@ const CircularSlider = () => {
                                 </div>
                                 <h2>{slide.sub_title}</h2>
                                 <h1 dangerouslySetInnerHTML={{ __html: slide.title }}></h1>
+
+                                <div className="detail_btn_wrapper">
+                                    <div className="detail_btn" onClick={() => openModalForSlide(index)}>Detail</div>
+                                </div>
+                                {openModal === 0 && <JobtalksModal />}
+                                {openModal === 1 && <IttyMoadl />}
+                                {openModal === 2 && <CodebridgeModal />}
+                                {openModal === 3 && <TravelmakerModal />}
+                                {openModal === 4 && <JavaburgerModal />}
                             </div>
                         ))}
                     </div>
@@ -187,7 +210,7 @@ const CircularSlider = () => {
                             }}
                         >
                             {slides.map((slide, index) => {
-                             const angle = stepAngle * index + (windowWidth > 1000 ? initialRotation : 0);
+                                const angle = stepAngle * index + (windowWidth > 1000 ? initialRotation : 0);
                                 const slideSize = sliderSize * 0.05; // 슬라이더 크기의 15%로 설정
                                 const radius = (sliderSize / 2 - slideSize / 2) * 1.05; // 0.8을 조정하여 반지름 변경
                                 const x = radius * Math.cos(angle - Math.PI / 2);
@@ -236,7 +259,8 @@ const CircularSlider = () => {
                                     transform: 'translate(-50%, -50%)',
                                 }}
                             >
-                                <img src="../images/planet_02_white.svg" alt="" style={{
+                                {/* <img src="../slider/test_02.svg" alt="" style={{ */}
+                                <img src="../slider/test_02.svg" alt="" style={{
                                     width: '100%',
                                     height: '100%',
                                     objectFit: 'contain'

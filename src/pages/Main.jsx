@@ -90,6 +90,8 @@ function Main() {
     }
 
 
+    
+
     return (
         <div className="App">
             {activeSlide >= 2 && activeSlide <= 6 &&
@@ -161,8 +163,8 @@ function Main() {
                 onSlideChange={handleSlideChange}
                 modules={[Mousewheel, Pagination]}
                 className="mySwiper"
-                // noSwiping={true}
-                // noSwipingClass="swiper-no-swiping"
+            // noSwiping={true}
+            // noSwipingClass="swiper-no-swiping"
             >
                 <SwiperSlide>
                     <div className="main_top_box">
@@ -196,6 +198,17 @@ function Main() {
                                     #완벽주의
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                    <div className="background_img_wrapper_02">
+                        <div className="img_01">
+                            <img src="/images/background_star.svg" alt="" />
+                        </div>
+                        <div className="img_02">
+                            <img src="/images/background_astro.svg" alt="" />
+                        </div>
+                        <div className="img_03">
+                            <img src="/images/background_rocket.svg" alt="" />
                         </div>
                     </div>
                 </SwiperSlide >
