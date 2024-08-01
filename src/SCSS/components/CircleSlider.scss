@@ -1,0 +1,182 @@
+.slider {
+    width: 100%;
+    height: 100%;
+
+    .circular-slider {
+        width: 100%;
+        height: 100%;
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+            .slides-holder {
+                border-radius: 50%;
+                border: 2px solid #8EB8E5;
+                -webkit-transform-origin: center;
+                -ms-transform-origin: center;
+                transform-origin: center;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                position: relative;
+                z-index: 100;
+
+                .slide_gesture_wrapper {
+                    // width: 150px;
+                    // height: 150px;
+                    // position: absolute;
+                    // top: 14rem;
+                    // left: 3rem;
+                    animation: tilt 2s infinite alternate ease-in-out;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                }
+
+                @keyframes tilt {
+
+                    0%,
+                    100% {
+                        transform: rotate(0deg);
+                    }
+
+                    50% {
+                        transform: rotate(9deg);
+                    }
+                }
+
+
+
+            }
+
+            .descriptions {
+                color: white;
+                display: flex;
+                align-items: center;
+                width: 50%;
+                padding-left: 10rem;
+                text-align: left;
+                position: relative;
+
+                h1,
+                h2 {
+                    transition: opacity 0.5s ease-in-out;
+                }
+
+                .descriptions__item {
+                    position: absolute;
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
+
+                    &_visible {
+                        opacity: 1;
+                    }
+
+                    .tech_stacks_wrapper{
+                        display: flex;
+                        gap: 10px;
+
+                        .tech_stack{
+                            padding: 0.4rem 1.2rem;
+                            color: rgb(10, 205, 206);
+                            font-size: 1rem;
+                            border: 0.2rem solid rgba(10, 205, 206, 0.25);
+                            border-radius: 10rem;
+                        }
+                    }
+                }
+
+                h1 {
+                    font-size: 8rem;
+                    
+                    @media (max-width:1580px){
+                        font-size: 7rem;
+                    }
+                    @media (max-width:1270px){
+                        font-size: 7rem;
+                    }
+                }
+                
+                h2 {
+                    font-size: 4rem;
+                    @media (max-width:1580px){
+                        font-size: 3rem;
+                    }
+                    @media (max-width:1270px){
+                        font-size: 3rem;
+                    }
+                }
+            }
+
+            .slides_wrapper {
+                width: 50%;
+                position: relative;
+                overflow: hidden;
+
+                .slides-holder {
+                    position: absolute;
+                    bottom: -175px;
+                    right: -226px;
+
+                    .slides-holder__item {
+                        // width: 60px;
+                        // height: 60px;
+                        // max-width: 200px;
+                        // max-height: 200px;
+                        width: 30%;
+                        height: 30%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        z-index: 999;
+                        border: 3px solid white;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img{
+                            width: 90%;
+                            height: 90%;
+                            cursor: grab;
+                            // touch-action: none;
+                        }
+                    }
+
+                }
+
+                .slide_center_wrapper {
+                    position: absolute;
+                    bottom: 113px;
+                    right: 35px;
+                    // width: 400px;
+                    // height: 400px;
+
+                    width: 30%;
+                    height: 30%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+
+                }
+            }
+
+        }
+    }
+}

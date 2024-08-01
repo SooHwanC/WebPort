@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/JavaBurger.scss';
+// import '../SCSS/pages/JavaBurger.scss';
 
 function JavaBurger({ closeModal }) {
     return (

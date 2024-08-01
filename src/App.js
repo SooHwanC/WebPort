@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './reset.css';
+import './SCSS/base/reset.scss';
+import './SCSS/base/font.scss';
 import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
 import JavaBurger from './pages/JavaBurger';
