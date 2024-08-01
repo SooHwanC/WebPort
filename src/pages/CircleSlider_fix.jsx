@@ -55,9 +55,24 @@ const CircularSlider = () => {
     const stepAngle = (2 * Math.PI) / slides.length;
 
     const [{ rotate }, api] = useSpring(() => ({
-        rotate: -45,
+        rotate: 0,
         config: { mass: 2, tension: 100, friction: 14 },
     }));
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+            setSliderSize(calculateSliderSize());
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const initialRotation = windowWidth > 1000 ? -45 * (Math.PI / 180) : 0;
 
     // const calculateSliderSize = () => {
     //     const viewportWidth = window.innerWidth;
@@ -73,9 +88,14 @@ const CircularSlider = () => {
 
     const calculateSliderSize = () => {
         if (wrapperRef.current) {
-            const wrapperWidth = wrapperRef.current.getBoundingClientRect().width;
+            const wrapperRect = wrapperRef.current.getBoundingClientRect();
+            const wrapperWidth = wrapperRect.width;
+            const wrapperHeight = wrapperRect.height;
             console.log('wrapperWidth:', wrapperWidth);
-            return Math.min(wrapperWidth * 1.1, 900);
+            console.log('wrapperHeight:', wrapperHeight);
+            // 너비와 높이 중 작은 값을 기준으로 슬라이더 크기 결정
+            const minDimension = Math.min(wrapperWidth, wrapperHeight);
+            return Math.min(minDimension * 1.1, 900);
         }
         return 800; // 기본값
     };
@@ -102,7 +122,7 @@ const CircularSlider = () => {
         }
 
         api.start({ rotate: currentRotate + diff, immediate: false });
-    }, [currentSlide, api, stepAngle, rotate]);
+    }, [currentSlide, api, stepAngle, rotate, windowWidth]);
 
     const rotateSlider = (direction) => {
         const newSlide = (currentSlide - direction + slides.length) % slides.length;
@@ -134,7 +154,6 @@ const CircularSlider = () => {
         }
     }, { preventScroll: true });
 
-    const initialRotation = -45 * (Math.PI / 180);
 
     const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -168,7 +187,7 @@ const CircularSlider = () => {
                             }}
                         >
                             {slides.map((slide, index) => {
-                                const angle = stepAngle * index + initialRotation;
+                             const angle = stepAngle * index + (windowWidth > 1000 ? initialRotation : 0);
                                 const slideSize = sliderSize * 0.05; // 슬라이더 크기의 15%로 설정
                                 const radius = (sliderSize / 2 - slideSize / 2) * 1.05; // 0.8을 조정하여 반지름 변경
                                 const x = radius * Math.cos(angle - Math.PI / 2);
@@ -200,10 +219,6 @@ const CircularSlider = () => {
                                     style={{
                                         width: `${sliderSize * 0.15}px`,
                                         height: `${sliderSize * 0.15}px`,
-                                        position: 'absolute',
-                                        top: '30%',
-                                        left: '9%',
-                                        transform: 'translate(-50%, -50%)',
                                     }}
                                 >
                                     <img src="../images/slide_gesture.svg" alt="드래그 제스처 안내" />
